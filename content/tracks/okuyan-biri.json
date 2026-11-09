@@ -1,0 +1,164 @@
+{
+  "id": "okuyan-biri",
+  "templateTitle": "Okuyan biri",
+  "pillarTitle": "Okuma",
+  "identityPhrase": "her gün okuyan",
+  "description": "Okuma alışkanlığı, odak ve okuduğunu hatırlamak",
+  "whyPlaceholder": "Ör. Daha derin düşünmek ve ekrandan uzaklaşmak istiyorum.",
+  "level": "baslangic",
+  "status": "draft",
+  "weeks": [
+    { "week": 1, "theme": "Zaman ve alan aç" },
+    { "week": 2, "theme": "Dikkatini koru" },
+    { "week": 3, "theme": "Derinleş: not al, tartış" },
+    { "week": 4, "theme": "Okumayı kimliğin yap" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "theme": "Kitabı görünür yap",
+      "learn": {
+        "title": "Ortam, irade kadar önemlidir",
+        "body": "Telefon elinin altında, kitap rafta duruyorsa kazanan hep telefon olur. Alışkanlıklar büyük ölçüde ortamın ürünüdür: Görünür ve kolay olan yapılır. Okumaya başlamanın ilk adımı daha fazla irade değil, kitabın senin yoluna çıkmasıdır.",
+        "source": "James Clear, Atomik Alışkanlıklar (2018)"
+      },
+      "do": {
+        "title": "Kitabı yastığına koy",
+        "body": "Okumak istediğin kitabı seç ve bu akşam yatağının ya da en çok oturduğun koltuğun üstüne koy. Telefonunun şarj yerini de odanın diğer ucuna taşı.",
+        "action": "Kitabı yatağa koy, telefonu odanın diğer ucunda şarja tak",
+        "fallback": "Sadece kitabı seç ve görünür bir yere koy",
+        "minutes": 5,
+        "suggestedTime": "21:30"
+      },
+      "inspire": {
+        "body": "Okuma alışkanlığı kazananların çoğu bir sabah 'artık okuyan biriyim' diye uyanmaz. Önce kitap komodine taşınır, sonra yatmadan önce birkaç sayfa okumak normalleşir. Değişim çoğu zaman bu kadar sessiz başlar."
+      },
+      "reflect": { "question": "Gün içinde telefonu en çok hangi anlarda eline alıyorsun?" }
+    },
+    {
+      "day": 2,
+      "theme": "Gülünç derecede küçük başla",
+      "learn": {
+        "title": "2 dakika kuralı",
+        "body": "Yeni bir alışkanlığa başlarken onu 2 dakikadan kısa sürecek kadar küçült. 'Her gün bir saat okuyacağım' yerine 'her gün bir sayfa okuyacağım'. Amaç ilk günden çok okumak değil, okuyan biri olmayı her gün tekrar etmek. Başlamak kolaylaştıkça devamı kendiliğinden gelir.",
+        "source": "James Clear, Atomik Alışkanlıklar (2018)"
+      },
+      "do": {
+        "title": "Sadece bir sayfa",
+        "body": "Bu akşam kitabını aç ve sadece bir sayfa oku. Devam etmek istersen devam et, ama hedef bir sayfa.",
+        "action": "Kitabından 1 sayfa oku",
+        "fallback": "Kitabı aç ve bir paragraf oku",
+        "minutes": 2,
+        "suggestedTime": "21:30"
+      },
+      "inspire": {
+        "body": "Bir sayfa az görünür. Ama her gün bir sayfa, bir yılda 365 sayfa eder. Üstelik çoğu akşam bir sayfada durmazsın."
+      },
+      "reflect": { "question": "Okumaya başlamanın önündeki en büyük engel sence ne?" }
+    },
+    {
+      "day": 3,
+      "theme": "Okuma saatini sabitle",
+      "learn": {
+        "title": "Ne zaman ve nerede?",
+        "body": "'Daha çok okuyacağım' bir niyettir; 'Akşam yemeğinden sonra koltukta 10 dakika okuyacağım' ise bir plan. Araştırmalar, bir şeyi ne zaman ve nerede yapacağını önceden belirleyenlerin niyetlerini daha sık hayata geçirdiğini gösteriyor. Buna uygulama niyeti deniyor.",
+        "source": "Peter M. Gollwitzer, Implementation Intentions (1999)"
+      },
+      "do": {
+        "title": "Cümleni yaz",
+        "body": "Şu cümleyi kendin için tamamla: 'Her gün ___ saatinde, ___ yerinde, ___ yaptıktan sonra okuyacağım.' Bir yere not et ve bu akşam uygula.",
+        "action": "Okuma planını tek cümle olarak yaz ve bu akşam uygula",
+        "fallback": "Sadece cümleyi yaz",
+        "minutes": 10,
+        "suggestedTime": "21:00"
+      },
+      "inspire": {
+        "body": "Belirli bir saat ve yer, her akşam yeniden karar verme yükünü ortadan kaldırır. 'Okusam mı?' diye düşünmek yorar; 'saat dokuz, koltuk, kitap' ise sadece yapılır."
+      },
+      "reflect": { "question": "Günün hangi saati okumak için sana en doğal geliyor?" }
+    },
+    {
+      "day": 4,
+      "theme": "Dikkat dağıtıcıları uzaklaştır",
+      "learn": {
+        "title": "Telefon masada durunca bile",
+        "body": "Okurken telefonun ekranı kapalı ve sessizde olsa bile, göz önünde durması dikkatini bölebilir: Zihnin bir kısmı onu kontrol etmemek için uğraşır. Okuma zamanında telefonu başka bir odaya koymak, iradeye yük bindirmeden dikkati korumanın en kolay yoludur.",
+        "source": "Ward ve ark., Brain Drain (2017)"
+      },
+      "do": {
+        "title": "Telefonsuz 10 dakika",
+        "body": "Bu akşamki okuma zamanında telefonunu başka bir odaya bırak. Süre tutman gerekiyorsa bir saat ya da mutfak zamanlayıcısı kullan.",
+        "action": "Telefon başka odadayken 10 dakika oku",
+        "fallback": "Telefonu ters çevirip 5 dakika oku",
+        "minutes": 10,
+        "suggestedTime": "21:30"
+      },
+      "inspire": {
+        "body": "Okurken sıkılma anları gelir. Bu bir başarısızlık değil; dikkatin hızlı uyaranlara alışmış durumda. Her telefonsuz okuma, dikkat kasını biraz daha çalıştırır."
+      },
+      "reflect": { "question": "Telefonsuz okurken aklına en çok ne geldi?" }
+    },
+    {
+      "day": 5,
+      "theme": "Doğru kitabı seç",
+      "learn": {
+        "title": "Sıkıcı kitabı bırakmak serbest",
+        "body": "Okuma alışkanlığını en çok öldüren şeylerden biri, sevmediğin bir kitabı 'bitirmem lazım' diye sürüklemektir. Başlangıçta merak ettiğin, kolay okunan kitaplar seç. 50 sayfa sonra hâlâ zorlanıyorsan bırakıp başka bir kitaba geçmek bir yenilgi değildir."
+      },
+      "do": {
+        "title": "Okuma listeni yap",
+        "body": "Merak ettiğin 3 kitabı yaz: biri kolay, biri orta, biri seni zorlayan. Şu an okuduğun kitap seni sıkıyorsa listedeki kolay olana geç.",
+        "action": "Merak ettiğin 3 kitabı listele",
+        "fallback": "Tek bir kitap adı yaz",
+        "minutes": 10,
+        "suggestedTime": "20:30"
+      },
+      "inspire": {
+        "body": "İyi okurlar her kitabı bitirmez. Onları okur yapan disiplin değil, merakı canlı tutmayı öğrenmiş olmaları."
+      },
+      "reflect": { "question": "Son zamanlarda neyi merak ettin?" }
+    },
+    {
+      "day": 6,
+      "theme": "Okuduğunu hatırla",
+      "learn": {
+        "title": "Kapat ve hatırla",
+        "body": "Okuduğunu unutmamanın en etkili yollarından biri, kitabı kapatıp aklında kalanı hatırlamaya çalışmaktır. Buna aktif hatırlama denir. Tekrar okumak tanıdık hissettirir ama hatırlamaya çalışmak bilgiyi çok daha kalıcı yapar.",
+        "source": "Brown, Roediger, McDaniel, Make It Stick (2014)"
+      },
+      "do": {
+        "title": "3 cümle kuralı",
+        "body": "Bu akşam okumayı bitirince kitabı kapat ve aklında kalanı 3 cümleyle yaz. Telefona değil, kâğıda yazmayı dene.",
+        "action": "Okuduğun bölümü kitap kapalıyken 3 cümleyle yaz",
+        "fallback": "Tek cümle yaz",
+        "minutes": 5,
+        "suggestedTime": "21:45"
+      },
+      "inspire": {
+        "body": "Hatırlamaya çalışırken zorlanmak öğrenmenin ta kendisi. 'Zor geldi' hissi, zihninin bilgiyi kalıcı hâle getirmek için çalıştığının işareti."
+      },
+      "reflect": { "question": "Bu hafta okuduklarından aklında en çok ne kaldı?" }
+    },
+    {
+      "day": 7,
+      "theme": "Haftaya bak",
+      "learn": {
+        "title": "Zinciri değil, ritmi say",
+        "body": "Bir günü kaçırmak alışkanlığı bozmaz; asıl risk iki günü üst üste kaçırmaktır. Bu yüzden kusursuz bir seri yerine ritim hedefle: haftanın çoğu günü, az da olsa okumak.",
+        "source": "James Clear, Atomik Alışkanlıklar (2018)"
+      },
+      "do": {
+        "title": "Haftalık okuma notu",
+        "body": "Bu hafta kaç gün okuduğuna bak. Hangi gün ve saat en iyi işledi? Önümüzdeki hafta için okuma planını buna göre güncelle.",
+        "action": "Bu haftanın okuma günlerini say ve planını güncelle",
+        "fallback": "En iyi işleyen günü yaz",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bir hafta önce okumak sadece bir istekti. Bu hafta okuduğun her sayfa, 'okuyan biriyim' cümlesinin bir kanıtı."
+      },
+      "reflect": { "question": "Okuyan biri olmak bu hafta sana nasıl hissettirdi?" }
+    }
+  ]
+}

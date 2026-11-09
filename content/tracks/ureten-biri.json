@@ -1,0 +1,160 @@
+{
+  "id": "ureten-biri",
+  "templateTitle": "Üreten biri",
+  "pillarTitle": "Üretim",
+  "identityPhrase": "tüketmek yerine üreten",
+  "description": "Yazmak, çizmek, paylaşmak: tüketiciden üreticiye",
+  "whyPlaceholder": "Ör. Kafamdakileri dışarı çıkarmak ve bir şey ortaya koymak istiyorum.",
+  "level": "baslangic",
+  "status": "draft",
+  "weeks": [
+    { "week": 1, "theme": "Her gün bir şey üret" },
+    { "week": 2, "theme": "Kendi sesini bul" },
+    { "week": 3, "theme": "Paylaşmaya başla" },
+    { "week": 4, "theme": "Üretmeyi kimliğin yap" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "theme": "Tüketim ve üretim",
+      "learn": {
+        "title": "Tüketmek kolay, üretmek tatmin edici",
+        "body": "Bir saat video izlemek geride pek bir şey bırakmaz; on dakika bir şey yazmak ya da çizmek ise somut bir iz bırakır. Üretmek kusursuz olmak zorunda değil. İlk hedef, tüketimin küçük bir kısmını üretime çevirmek."
+      },
+      "do": {
+        "title": "10 dakika serbest yazı",
+        "body": "Bir zamanlayıcı kur ve 10 dakika boyunca aklına ne geliyorsa yaz. Durma, düzeltme, silme. Konu bulamazsan 'Şu an aklımda olan şey...' diye başla.",
+        "action": "10 dakika durmadan serbest yazı yaz",
+        "fallback": "3 cümle yaz",
+        "minutes": 10,
+        "suggestedTime": "20:30"
+      },
+      "inspire": {
+        "body": "Üretmeye başlamak için ilham beklemek gerekmez. Çoğu zaman ilham, üretirken gelir."
+      },
+      "reflect": { "question": "Bugün ne kadar tükettin, ne kadar ürettin?" }
+    },
+    {
+      "day": 2,
+      "theme": "Kötü ilk taslak",
+      "learn": {
+        "title": "İlk taslağın kötü olma hakkı var",
+        "body": "Üretmenin önündeki en büyük engellerden biri mükemmeliyetçiliktir. Yazarlar, tasarımcılar ve müzisyenler çoğunlukla işe kötü bir ilk taslakla başlar ve onu sonra düzeltir. Kötü bir ilk taslak, hiç yazılmamış mükemmel bir taslaktan iyidir.",
+        "source": "Anne Lamott, Bird by Bird (1994)"
+      },
+      "do": {
+        "title": "Bilerek kötü yap",
+        "body": "Bugün bilerek 'kötü' bir şey üret: kötü bir şiir, kötü bir çizim, kötü bir fikir listesi. Tek amaç bitirmek.",
+        "action": "Bilerek kötü bir ilk taslak üret ve bitir",
+        "fallback": "5 dakikalık bir karalama yap",
+        "minutes": 15,
+        "suggestedTime": "20:30"
+      },
+      "inspire": {
+        "body": "Bir şeyi kötü yapmaya izin verdiğinde, iyi yapmanın kapısı da açılır."
+      },
+      "reflect": { "question": "Üretirken içindeki eleştirmen sana ne dedi?" }
+    },
+    {
+      "day": 3,
+      "theme": "Fikir defteri",
+      "learn": {
+        "title": "Fikirler kaçar, yazılanlar kalır",
+        "body": "Fikirler genellikle masa başında değil; yürürken, duşta ya da yolda gelir ve birkaç dakika içinde kaybolur. Tek bir yerde tutulan bir fikir listesi, 'Ne üretsem?' sorusunun hazır cevabıdır."
+      },
+      "do": {
+        "title": "Fikir listeni başlat",
+        "body": "Telefonunda ya da bir defterde 'Fikirler' adında tek bir liste aç. Bugün içine en az 5 fikir yaz: yazı konusu, çizim, proje, soru; ne olursa.",
+        "action": "Fikir listene 5 fikir yaz",
+        "fallback": "1 fikir yaz",
+        "minutes": 10,
+        "suggestedTime": "13:00"
+      },
+      "inspire": {
+        "body": "Her büyük proje bir zamanlar bir listede tek satırlık bir fikirdi."
+      },
+      "reflect": { "question": "Bugün aklına gelen en ilginç fikir neydi?" }
+    },
+    {
+      "day": 4,
+      "theme": "Kendi sesin",
+      "learn": {
+        "title": "Sana özgü bakış",
+        "body": "Bir konuda söylenmemiş söz kalmamış gibi gelebilir. Ama aynı konuyu senin deneyiminle, senin örneklerin ve cümlelerinle anlatan başka kimse yok. Kendi sesini bulmanın yolu, kendi yaşadıklarından yola çıkmaktır."
+      },
+      "do": {
+        "title": "Bir deneyimini anlat",
+        "body": "Son zamanlarda öğrendiğin bir şeyi ya da yaşadığın bir anı yaklaşık 150 kelimeyle anlat. Bir arkadaşına anlatıyormuş gibi yaz.",
+        "action": "Bir deneyimini 150 kelimeyle yaz",
+        "fallback": "Deneyimini tek paragrafta özetle",
+        "minutes": 15,
+        "suggestedTime": "20:30"
+      },
+      "inspire": {
+        "body": "En samimi işler çoğu zaman 'Bunu kimse merak etmez' diye düşündüğümüz şeylerden çıkar."
+      },
+      "reflect": { "question": "Hangi konuda konuşurken zamanın nasıl geçtiğini anlamazsın?" }
+    },
+    {
+      "day": 5,
+      "theme": "Rutin, ilhamdan güçlü",
+      "learn": {
+        "title": "Düzenli üretenler ilham beklemez",
+        "body": "Düzenli üretenler genellikle ilhamı beklemek yerine her gün belli bir saatte işin başına oturur. Rutin, karar verme yükünü kaldırır ve üretmeyi sıradan bir şey hâline getirir.",
+        "source": "Steven Pressfield, The War of Art (2002)"
+      },
+      "do": {
+        "title": "Üretim saatini belirle",
+        "body": "Her gün üretmek için 15 dakikalık bir zaman ve yer belirle. Bugün o saatte, ne üreteceğini uzun uzun düşünmeden otur ve başla.",
+        "action": "Belirlediğin saatte 15 dakika üret",
+        "fallback": "O saatte 5 dakika otur ve başla",
+        "minutes": 15,
+        "suggestedTime": "07:30"
+      },
+      "inspire": {
+        "body": "Her gün aynı saatte masaya oturmak, bir süre sonra zihnine 'şimdi üretme zamanı' sinyali verir."
+      },
+      "reflect": { "question": "Günün hangi saatinde zihnin en açık?" }
+    },
+    {
+      "day": 6,
+      "theme": "Küçük bir şey paylaş",
+      "learn": {
+        "title": "Paylaşmak bitirmeyi kolaylaştırır",
+        "body": "Kimseye göstermediğin işler sonsuza kadar taslak kalabilir. Küçük bir şeyi bile birine göstermek, onu bitirmeni sağlar ve geri bildirimin kapısını açar. Paylaşmak herkese açık olmak zorunda değil; güvendiğin tek bir kişi de yeter."
+      },
+      "do": {
+        "title": "Bir kişiye göster",
+        "body": "Bu hafta ürettiklerinden birini seç ve güvendiğin bir kişiye gönder. Geri bildirim istemek zorunda değilsin, sadece göster.",
+        "action": "Ürettiğin bir şeyi güvendiğin bir kişiye gönder",
+        "fallback": "Göstereceğin işi seç",
+        "minutes": 5,
+        "suggestedTime": "19:00"
+      },
+      "inspire": {
+        "body": "Paylaşılan küçük bir iş, saklanan büyük bir işten daha çok şey öğretir."
+      },
+      "reflect": { "question": "Paylaşırken neler hissettin?" }
+    },
+    {
+      "day": 7,
+      "theme": "Haftaya bak",
+      "learn": {
+        "title": "Üretim günlüğü",
+        "body": "Ne ürettiğini görmek motivasyonu besler. Bir haftada ürettiğin her şeyi yan yana koyduğunda 'hiçbir şey yapmıyorum' hissinin ne kadar yanıltıcı olduğunu görürsün."
+      },
+      "do": {
+        "title": "Haftanın üretimleri",
+        "body": "Bu hafta ürettiğin her şeyi listele: yazılar, çizimler, fikirler. Hangisi en çok hoşuna gitti? Önümüzdeki hafta onun üzerine devam et.",
+        "action": "Bu haftanın üretimlerini listele ve bir favori seç",
+        "fallback": "Favori üretimini seç",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bir hafta önce sadece tüketiyordun. Bu listenin her satırı, üreten biri olduğunun kanıtı."
+      },
+      "reflect": { "question": "Önümüzdeki hafta ne üretmek istiyorsun?" }
+    }
+  ]
+}

@@ -1,0 +1,159 @@
+{
+  "id": "odaklanan-biri",
+  "templateTitle": "Odaklanan biri",
+  "pillarTitle": "Odak",
+  "identityPhrase": "dikkatini koruyan",
+  "description": "Dijital minimalizm, derin çalışma ve dikkat",
+  "whyPlaceholder": "Ör. Dağılmadan çalışabilmek ve zihnimi sakinleştirmek istiyorum.",
+  "level": "baslangic",
+  "status": "draft",
+  "weeks": [
+    { "week": 1, "theme": "Telefonla ilişkini gör" },
+    { "week": 2, "theme": "Derin çalışma" },
+    { "week": 3, "theme": "Sıkılmaya alan aç" },
+    { "week": 4, "theme": "Odağı kimliğin yap" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "theme": "Farkındalık",
+      "learn": {
+        "title": "Önce gör",
+        "body": "Değiştirmek istediğin şeyi önce görmen gerekir. Telefonunun ekran süresi bölümü, günde ne kadar zaman ve en çok hangi uygulamalarda geçirdiğini gösterir. Bu bir yargı değil, sadece bir başlangıç noktası."
+      },
+      "do": {
+        "title": "Ekran süreni gör",
+        "body": "Telefonunun ayarlarından ekran süresi bölümünü aç. Dünkü toplam süreyi ve en çok kullandığın 3 uygulamayı not et.",
+        "action": "Ekran süreni ve en çok kullandığın 3 uygulamayı not et",
+        "fallback": "Sadece dünkü toplam süreye bak",
+        "minutes": 5,
+        "suggestedTime": "12:30"
+      },
+      "inspire": {
+        "body": "Farkına varmak değişimin ilk adımı. Rakamlara bakmak kendini suçlamak için değil, seçim yapabilmek için."
+      },
+      "reflect": { "question": "Rakamları görünce ne hissettin?" }
+    },
+    {
+      "day": 2,
+      "theme": "Ana ekranı sadeleştir",
+      "learn": {
+        "title": "Görünmeyen daha az açılır",
+        "body": "Ana ekrandaki her uygulama simgesi küçük bir davettir. Sosyal medya uygulamalarını ana ekrandan kaldırıp son sayfadaki bir klasöre taşımak, onları farkında olmadan açma ihtimalini azaltır. Silmen gerekmiyor; sadece biraz uzaklaştır."
+      },
+      "do": {
+        "title": "Simgeleri taşı",
+        "body": "En çok zaman geçirdiğin 2 uygulamayı ana ekrandan kaldır ve son sayfadaki bir klasöre taşı.",
+        "action": "2 uygulamayı ana ekrandan bir klasöre taşı",
+        "fallback": "1 uygulamayı ana ekrandan kaldır",
+        "minutes": 3,
+        "suggestedTime": "12:30"
+      },
+      "inspire": {
+        "body": "Bazen en büyük değişiklik, bir simgeyi bir parmak hareketi kadar uzağa taşımaktır."
+      },
+      "reflect": { "question": "Bugün telefonu kaç kez 'Neden açtım ki?' diye düşünerek eline aldın?" }
+    },
+    {
+      "day": 3,
+      "theme": "Bildirimleri kapat",
+      "learn": {
+        "title": "Bildirimler kimin önceliği?",
+        "body": "Her bildirim, o anda yaptığın işten seni koparıp başkasının önceliğine çeker; kesintiden sonra işe geri dönmek de zaman alır. Gerçekten acil olmayan bildirimleri kapatmak, dikkatini geri almanın en hızlı yollarından biridir."
+      },
+      "do": {
+        "title": "Bildirim temizliği",
+        "body": "Ayarlardan bildirimlere gir. Mesajlar ve aramalar dışında, insanlardan değil uygulamalardan gelen bildirimleri kapat.",
+        "action": "İnsanlardan gelmeyen bildirimleri kapat",
+        "fallback": "En çok bildirim gönderen 1 uygulamanın bildirimlerini kapat",
+        "minutes": 10,
+        "suggestedTime": "12:30"
+      },
+      "inspire": {
+        "body": "Sessiz bir telefon ilk günlerde garip gelebilir. Birkaç gün sonra bu sessizlik, zihninde açılan bir alana dönüşür."
+      },
+      "reflect": { "question": "Hangi bildirimi kapatmak en zor geldi?" }
+    },
+    {
+      "day": 4,
+      "theme": "Tek iş",
+      "learn": {
+        "title": "Çoklu görev bir yanılsama",
+        "body": "Aynı anda iki iş yaptığını düşündüğünde çoğu zaman ikisi arasında hızla gidip geliyorsundur. Her geçiş biraz dikkat ve zaman kaybettirir. Tek bir işe odaklanmak hem daha hızlı hem daha az yorucudur."
+      },
+      "do": {
+        "title": "15 dakika tek iş",
+        "body": "Bugün önemli bir işi seç. 15 dakikalık bir zamanlayıcı kur ve bu sürede sadece o işle ilgilen. Telefon başka odada, ilgisiz sekmeler kapalı.",
+        "action": "Telefonsuz 15 dakika tek bir işe odaklan",
+        "fallback": "5 dakika tek işe odaklan",
+        "minutes": 15,
+        "suggestedTime": "10:00"
+      },
+      "inspire": {
+        "body": "Derin odaklanmak doğuştan gelen bir yetenek değil, çalıştıkça güçlenen bir beceri. Her odaklı seans o beceriyi biraz daha geliştirir."
+      },
+      "reflect": { "question": "Odaklanırken seni en çok ne böldü?" }
+    },
+    {
+      "day": 5,
+      "theme": "Derin çalışma",
+      "learn": {
+        "title": "Derin çalışmanın değeri",
+        "body": "Dikkatin dağılmadan, zihinsel olarak zorlayıcı bir işe odaklandığın zamana derin çalışma denir. Bu tür çalışma hem daha kaliteli iş çıkarmanı hem de yeni becerileri daha hızlı öğrenmeni sağlar. Ama kendiliğinden olmaz; takvimde ona yer açman gerekir.",
+        "source": "Cal Newport, Deep Work (2016)"
+      },
+      "do": {
+        "title": "Takvime blok koy",
+        "body": "Yarın için takviminde 45 dakikalık bir 'derin çalışma' bloğu ayır ve o sırada ne yapacağını şimdiden yaz.",
+        "action": "Yarın için 45 dakikalık bir derin çalışma bloğu planla",
+        "fallback": "Yarın için 20 dakikalık bir blok planla",
+        "minutes": 5,
+        "suggestedTime": "17:30"
+      },
+      "inspire": {
+        "body": "Takvimde korunan tek bir saat, gün içine dağılmış birkaç saatten daha üretken olabilir."
+      },
+      "reflect": { "question": "Hangi işin derin odaklanmayı en çok hak ediyor?" }
+    },
+    {
+      "day": 6,
+      "theme": "Sıkılmaya izin ver",
+      "learn": {
+        "title": "Boş anlar boş değil",
+        "body": "Sırada beklerken ya da yürürken telefonu eline almak artık bir refleks. Ama bu boş anlar, zihnin dinlendiği ve fikirlerin olgunlaştığı anlardır. Sıkılmaya tahammül edebilmek, odaklanabilmenin bir parçasıdır."
+      },
+      "do": {
+        "title": "Telefonsuz bekle",
+        "body": "Bugün en az bir kez beklerken (sıra, toplu taşıma, kahve) telefonu cebinden çıkarma. Etrafına bak ya da sadece düşün.",
+        "action": "Bir bekleme anını telefonsuz geçir",
+        "fallback": "1 dakika telefona bakmadan bekle",
+        "minutes": 5,
+        "suggestedTime": "13:00"
+      },
+      "inspire": {
+        "body": "İyi fikirlerin sık sık duşta ya da yürürken gelmesi tesadüf değil. Zihin, boş kaldığında da çalışmaya devam eder."
+      },
+      "reflect": { "question": "Telefonsuz beklerken aklından neler geçti?" }
+    },
+    {
+      "day": 7,
+      "theme": "Haftaya bak",
+      "learn": {
+        "title": "Küçük kurallar, büyük alan",
+        "body": "Bu hafta küçük değişiklikler yaptın: simgeleri taşıdın, bildirimleri kapattın, tek bir işe odaklandın. Bu değişikliklerin hepsi iradeye değil ortama dayanıyor. Ortamı değiştirmek, her gün yeniden karar vermekten çok daha sürdürülebilirdir."
+      },
+      "do": {
+        "title": "Ekran süreni karşılaştır",
+        "body": "Ekran süresi bölümünü tekrar aç ve ilk gün not ettiğin rakamla karşılaştır. Hangi değişiklik en çok işe yaradı? Onu kalıcı yap.",
+        "action": "Ekran süreni ilk günle karşılaştır ve bir değişikliği kalıcı yap",
+        "fallback": "Bugünkü ekran süreni not et",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bir hafta önce dikkatinin büyük kısmı uygulamalara aitti. Bu hafta bir kısmını geri aldın. Odaklanan biri olmak tam olarak bu: dikkatini kime vereceğine senin karar vermen."
+      },
+      "reflect": { "question": "Geri kazandığın zamanı neye harcamak istiyorsun?" }
+    }
+  ]
+}

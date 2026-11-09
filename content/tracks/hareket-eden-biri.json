@@ -1,0 +1,160 @@
+{
+  "id": "hareket-eden-biri",
+  "templateTitle": "Hareket eden biri",
+  "pillarTitle": "Hareket",
+  "identityPhrase": "bedenini her gün hareket ettiren",
+  "description": "Sıfırdan, kendi temponda hareket alışkanlığı",
+  "whyPlaceholder": "Ör. Gün boyu daha enerjik hissetmek istiyorum.",
+  "level": "baslangic",
+  "status": "draft",
+  "weeks": [
+    { "week": 1, "theme": "Harekete başla" },
+    { "week": 2, "theme": "Ritmi oturt" },
+    { "week": 3, "theme": "Biraz zorla" },
+    { "week": 4, "theme": "Hareketi kimliğin yap" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "theme": "En küçük adım",
+      "learn": {
+        "title": "Başlamak en zor kısım",
+        "body": "Hareket alışkanlığında en büyük engel çoğu zaman antrenmanın kendisi değil, başlamaktır. Bu yüzden ilk hafta hedef performans değil, hareketi günün sıradan bir parçası yapmak. Bir sağlık sorunun varsa yeni bir rutine başlamadan önce doktoruna danış."
+      },
+      "do": {
+        "title": "5 dakika yürü",
+        "body": "Bugün dışarı çık ve sadece 5 dakika yürü. Hızlı ya da uzun olması gerekmiyor. Dışarı çıkamıyorsan ev içinde de yapabilirsin.",
+        "action": "5 dakika yürüyüş yap",
+        "fallback": "Ayakkabını giy ve kapının önüne çık",
+        "minutes": 5,
+        "suggestedTime": "18:30"
+      },
+      "inspire": {
+        "body": "Düzenli hareket edenlerin çoğu bir gün maraton koşmaya karar vererek başlamadı. Çoğu, kısa bir yürüyüşü günün sıradan bir parçası yaparak başladı."
+      },
+      "reflect": { "question": "Bugün bedenin nasıl hissediyor?" }
+    },
+    {
+      "day": 2,
+      "theme": "Tetiğe bağla",
+      "learn": {
+        "title": "Alışkanlık istifleme",
+        "body": "Yeni bir alışkanlığı zaten her gün yaptığın bir şeyin hemen ardına eklemek, onu hatırlamayı kolaylaştırır: 'Sabah kahvemi koyduktan sonra 10 squat yapacağım.' Mevcut alışkanlık, yenisinin tetiği olur.",
+        "source": "James Clear, Atomik Alışkanlıklar (2018)"
+      },
+      "do": {
+        "title": "10 squat",
+        "body": "Her gün kesin yaptığın bir şeyi seç (diş fırçalamak, kahve koymak) ve hemen ardından 10 squat yap. Rahat bir tempoda, zorlamadan.",
+        "action": "Seçtiğin alışkanlığın ardından 10 squat yap",
+        "fallback": "3 squat yap",
+        "minutes": 2,
+        "suggestedTime": "08:00"
+      },
+      "inspire": {
+        "body": "Küçük bir hareketi her gün aynı ana bağlamak motivasyona olan ihtiyacı azaltır. Bir süre sonra kahve koymak ve squat yapmak tek bir hareket gibi gelir."
+      },
+      "reflect": { "question": "Gün içinde hareketi bağlayabileceğin başka bir an var mı?" }
+    },
+    {
+      "day": 3,
+      "theme": "Oturmayı böl",
+      "learn": {
+        "title": "Uzun oturmaları bölmek",
+        "body": "Saatlerce kesintisiz oturmak bedeni yorar. Spor salonuna gitmeden de yapılabilecek basit bir şey var: Belirli aralıklarla kalkıp birkaç dakika hareket etmek. Su doldurmak, merdiven çıkmak ya da esnemek yeter."
+      },
+      "do": {
+        "title": "Saat başı kalk",
+        "body": "Bugün çalışırken ya da ders çalışırken her saat başı kalk ve 2 dakika hareket et. Hatırlamak için telefonu değil, bir saat alarmı kullan.",
+        "action": "Bugün en az 3 kez kalkıp 2 dakika hareket et",
+        "fallback": "Bir kez kalkıp esne",
+        "minutes": 6,
+        "suggestedTime": "11:00"
+      },
+      "inspire": {
+        "body": "Hareket sadece antrenman demek değil. Günün içine serpiştirilmiş küçük hareketler de bedenine iyi geldiğini hissettirir."
+      },
+      "reflect": { "question": "Bugün tahminen kaç saat oturdun?" }
+    },
+    {
+      "day": 4,
+      "theme": "Hazırlığı kolaylaştır",
+      "learn": {
+        "title": "Sürtünmeyi azalt",
+        "body": "Bir şeyi yapmak için gereken adım sayısı azaldıkça onu yapma ihtimalin artar. Spor kıyafetini bulmak için dolabı karıştırmak bile vazgeçmek için yeterli bir bahane olabilir. Hazırlığı önceden yapmak, yarınki sen için bir iyiliktir.",
+        "source": "James Clear, Atomik Alışkanlıklar (2018)"
+      },
+      "do": {
+        "title": "Kıyafetini hazırla",
+        "body": "Bu akşam yarın hareket ederken giyeceğin kıyafeti ve ayakkabıyı kapının yanına hazırla.",
+        "action": "Yarın için hareket kıyafetini kapının yanına koy",
+        "fallback": "Sadece ayakkabını kapının önüne koy",
+        "minutes": 3,
+        "suggestedTime": "22:00"
+      },
+      "inspire": {
+        "body": "Bazen en etkili antrenman, bir gece önce kapının önüne konmuş bir çift ayakkabıdır."
+      },
+      "reflect": { "question": "Hareket etmeni en çok ne zorlaştırıyor?" }
+    },
+    {
+      "day": 5,
+      "theme": "Sevdiğin hareketi bul",
+      "learn": {
+        "title": "Keyif, devamlılığın anahtarı",
+        "body": "Uzun vadede sürdürülen hareket genelde en verimli olan değil, en çok keyif alınandır. Yürümek, dans etmek, bisiklet, yüzmek, ev egzersizi: Hepsi geçerli. Bu hafta birkaç şey deneyip hangisinin sana iyi geldiğine bak."
+      },
+      "do": {
+        "title": "Yeni bir şey dene",
+        "body": "Bugün daha önce denemediğin ya da uzun zamandır yapmadığın bir hareketi dene: 10 dakika dans, ip atlama, bir esneme rutini.",
+        "action": "10 dakika yeni bir hareket dene",
+        "fallback": "Sevdiğin bir şarkı boyunca hareket et",
+        "minutes": 10,
+        "suggestedTime": "19:00"
+      },
+      "inspire": {
+        "body": "Hareketi bir ceza gibi değil bir oyun gibi görmeye başladığında devam etmek kolaylaşır."
+      },
+      "reflect": { "question": "Bu hafta hangi hareket sana en iyi geldi?" }
+    },
+    {
+      "day": 6,
+      "theme": "Biraz daha uzun",
+      "learn": {
+        "title": "Kademeli artış",
+        "body": "Alışkanlık oturdukça süreyi yavaş yavaş artırmak hem bedenin hem motivasyonun için daha güvenlidir. Büyük sıçramalar yerine küçük artışlar: 5 dakikadan 10 dakikaya geçmek yeterince büyük bir adım."
+      },
+      "do": {
+        "title": "10 dakikalık yürüyüş",
+        "body": "Bugün ilk günkü yürüyüşünün iki katını yap: 10 dakika. Temponu konuşabileceğin ama biraz nefesinin hızlandığı bir seviyede tut.",
+        "action": "10 dakika tempolu yürü",
+        "fallback": "5 dakika yürü",
+        "minutes": 10,
+        "suggestedTime": "18:30"
+      },
+      "inspire": {
+        "body": "Bir hafta önce 5 dakika yürümek bile bir karardı. Bugün 10 dakika sıradan bir gün gibi gelebilir. Fark tam olarak bu."
+      },
+      "reflect": { "question": "İlk güne göre ne değişti?" }
+    },
+    {
+      "day": 7,
+      "theme": "Haftaya bak",
+      "learn": {
+        "title": "Kusursuz değil, sürekli",
+        "body": "Haftada birkaç gün yapılan kısa hareket, ayda bir yapılan uzun antrenmandan daha değerlidir. Bir günü kaçırdıysan sorun yok; önemli olan ertesi gün küçük versiyonuyla geri dönmek."
+      },
+      "do": {
+        "title": "Haftalık hareket notu",
+        "body": "Bu hafta kaç gün hareket ettiğine bak. Hangi saat ve hangi hareket en iyi işledi? Önümüzdeki hafta için bir plan yap.",
+        "action": "Bu haftanın hareket günlerini say ve gelecek haftayı planla",
+        "fallback": "En iyi işleyen hareketi yaz",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bu hafta yaptığın her yürüyüş, 'hareket eden biriyim' cümlesinin bir kanıtı."
+      },
+      "reflect": { "question": "Önümüzdeki hafta bedenine ne vermek istiyorsun?" }
+    }
+  ]
+}

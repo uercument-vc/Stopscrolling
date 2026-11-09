@@ -1,0 +1,158 @@
+{
+  "id": "yazilim-ogrenen-biri",
+  "templateTitle": "Yazılım öğrenen biri",
+  "pillarTitle": "Yazılım",
+  "identityPhrase": "her gün kod yazan",
+  "description": "Temel kavramlar ve her gün küçük bir pratik",
+  "whyPlaceholder": "Ör. Kendi projelerimi yapabilmek ve kariyerimi değiştirmek istiyorum.",
+  "level": "baslangic",
+  "status": "draft",
+  "weeks": [
+    { "week": 1, "theme": "İlk satırlar" },
+    { "week": 2, "theme": "Mantık kur" },
+    { "week": 3, "theme": "Küçük projeler" },
+    { "week": 4, "theme": "Kod yazmayı kimliğin yap" }
+  ],
+  "days": [
+    {
+      "day": 1,
+      "theme": "Bilgisayara talimat vermek",
+      "learn": {
+        "title": "Programlama nedir?",
+        "body": "Programlama, bilgisayara ne yapacağını adım adım ve çok net bir dille anlatmaktır. Bilgisayar tahmin yürütmez: Ne yazarsan onu yapar. Bu yüzden ilk beceri bir dili ezberlemek değil, bir işi küçük ve net adımlara bölmektir."
+      },
+      "do": {
+        "title": "İlk satırın",
+        "body": "Bilgisayarında tarayıcıyı aç, F12 tuşuna bas ve Console (Konsol) sekmesine şunu yaz: console.log('Merhaba, ben kod yazıyorum'); Sonra Enter'a bas. İlk programını çalıştırmış oldun.",
+        "action": "Tarayıcı konsolunda ilk console.log satırını çalıştır",
+        "fallback": "Bir işi (ör. çay demlemek) 5 net adıma böl ve yaz",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bugün kod yazan herkes bir zamanlar ilk 'Merhaba' satırını yazdı. Fark, ertesi gün ikinci satırı yazmaya devam etmekti."
+      },
+      "reflect": { "question": "Kod yazmayı öğrenince yapmak istediğin ilk şey ne?" }
+    },
+    {
+      "day": 2,
+      "theme": "Değişkenler",
+      "learn": {
+        "title": "Değişken: etiketli bir kutu",
+        "body": "Değişken, bir değeri saklamak için ona verdiğin isimdir. let yas = 26; yazdığında 'yas' adlı kutuya 26 koymuş olursun. Sonra yas + 1 yazarak bu değeri kullanabilirsin. Programlar değerleri bu kutularda tutarak ve değiştirerek çalışır."
+      },
+      "do": {
+        "title": "Kendi değişkenlerin",
+        "body": "Konsolda üç değişken oluştur: adın, yaşın ve en sevdiğin şehir. Sonra hepsini tek cümlede yazdır, örneğin: console.log(ad + ', ' + yas + ' yaşında');",
+        "action": "3 değişken oluştur ve tek cümlede yazdır",
+        "fallback": "Tek bir değişken oluştur ve yazdır",
+        "minutes": 10,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Yeni bir dilin ilk kelimeleri hep basittir. Programlamada da öyle: Bugünkü değişkenler, yarınki uygulamaların yapı taşları."
+      },
+      "reflect": { "question": "Değişkenin ne olduğunu kendi cümlenle nasıl anlatırsın?" }
+    },
+    {
+      "day": 3,
+      "theme": "Koşullar",
+      "learn": {
+        "title": "Eğer... ise",
+        "body": "Programlar karar verebilir: “Saat 22'den büyükse uyu, değilse oku.” Bunu kodda if ile yazarız: if (saat > 22) { console.log('Uyu'); } else { console.log('Oku'); }. Koşullar, programın farklı durumlara farklı tepki vermesini sağlar."
+      },
+      "do": {
+        "title": "Karar veren kod",
+        "body": "Konsolda bir saat değişkeni oluştur ve saate göre 'Günaydın', 'İyi günler' ya da 'İyi akşamlar' yazdıran bir if / else if / else bloğu yaz.",
+        "action": "Saate göre selam veren bir if bloğu yaz",
+        "fallback": "Tek bir if koşulu yaz",
+        "minutes": 15,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Hata almak kod yazmanın bir parçası. Deneyimli yazılımcılar da her gün hata alır; fark, hatayı bir ipucu olarak okumaları."
+      },
+      "reflect": { "question": "Bugün hangi kısım kafanı karıştırdı?" }
+    },
+    {
+      "day": 4,
+      "theme": "Döngüler",
+      "learn": {
+        "title": "Tekrar eden işler",
+        "body": "Bir şeyi 100 kez yapmak için 100 satır yazmazsın; döngü kullanırsın. for (let i = 1; i <= 5; i++) { console.log(i); } kodu 1'den 5'e kadar sayıları yazdırır. Döngüler, bilgisayarın en iyi yaptığı şeyi yaptırır: sıkılmadan tekrar etmek."
+      },
+      "do": {
+        "title": "Çarpım tablosu",
+        "body": "Bir for döngüsüyle 7'nin çarpım tablosunu yazdır: 7 x 1 = 7, 7 x 2 = 14 ... 7 x 10 = 70.",
+        "action": "for döngüsüyle bir çarpım tablosu yazdır",
+        "fallback": "1'den 10'a kadar sayıları yazdır",
+        "minutes": 15,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bir döngüyü ilk kez çalıştırdığında hissettiğin 'vay' anı, programlamanın neden bu kadar keyifli olduğunu özetler."
+      },
+      "reflect": { "question": "Hayatında otomatikleştirmek istediğin tekrar eden bir iş var mı?" }
+    },
+    {
+      "day": 5,
+      "theme": "Fonksiyonlar",
+      "learn": {
+        "title": "Bir kez yaz, çok kullan",
+        "body": "Fonksiyon, bir işi yapan kod parçasına isim vermektir. function selamla(ad) { return 'Merhaba ' + ad; } yazdıktan sonra selamla('Deniz') diyerek istediğin kadar kullanabilirsin. Fonksiyonlar, büyük problemleri küçük ve yeniden kullanılabilir parçalara böler."
+      },
+      "do": {
+        "title": "İlk fonksiyonun",
+        "body": "İki sayı alan ve büyük olanı döndüren bir fonksiyon yaz: buyukOlan(3, 8) sonucu 8 olsun. Dünkü if bilgini kullan.",
+        "action": "İki sayının büyüğünü döndüren bir fonksiyon yaz",
+        "fallback": "selamla fonksiyonunu kendi adınla çalıştır",
+        "minutes": 15,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bu hafta değişken, koşul, döngü ve fonksiyonla tanıştın. Programlamanın temel taşlarının büyük kısmı bunlar."
+      },
+      "reflect": { "question": "Bu hafta en çok hangi an hoşuna gitti?" }
+    },
+    {
+      "day": 6,
+      "theme": "Hata mesajlarını oku",
+      "learn": {
+        "title": "Hata mesajı bir düşman değil",
+        "body": "Kırmızı bir hata mesajı ilk başta korkutucu görünür ama aslında neyin ve nerede yanlış gittiğini söyler. 'ReferenceError: x is not defined' mesajı, x adında bir değişken tanımlamadığını anlatır. Hata mesajını dikkatle okumak, hata ayıklamanın ilk adımıdır."
+      },
+      "do": {
+        "title": "Bilerek hata yap",
+        "body": "Konsolda bilerek üç farklı hata oluştur: tanımlanmamış bir değişken kullan, bir parantezi kapatma, bir sayıyı fonksiyon gibi çağır. Her hata mesajını oku ve ne anlatmak istediğini kendi cümlenle yaz.",
+        "action": "3 farklı hata oluştur ve mesajlarını kendi cümlelerinle açıkla",
+        "fallback": "Bir hata oluştur ve mesajını oku",
+        "minutes": 15,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Hata ayıklamak bir dedektif gibi düşünmeyi öğretir. Çözdüğün her hata, bir sonrakini daha hızlı çözmeni sağlar."
+      },
+      "reflect": { "question": "Bir hatayla karşılaştığında ilk tepkin ne oluyor?" }
+    },
+    {
+      "day": 7,
+      "theme": "Haftaya bak",
+      "learn": {
+        "title": "Anlatabildiğin şeyi öğrenmişsindir",
+        "body": "Bir konuyu gerçekten anlayıp anlamadığını görmenin en iyi yolu onu anlatmaktır. Anlatamadığın yer, henüz tam oturmamış olan yerdir. Bu yüzden haftalık bir 'kendime anlat' anı, yalnızca tekrar etmekten daha değerlidir."
+      },
+      "do": {
+        "title": "Haftayı anlat",
+        "body": "Bu hafta öğrendiğin dört kavramı (değişken, koşul, döngü, fonksiyon) koda bakmadan, birer cümle ve birer örnekle yaz.",
+        "action": "4 kavramı bakmadan birer cümle ve örnekle yaz",
+        "fallback": "En sevdiğin kavramı bir cümleyle anlat",
+        "minutes": 15,
+        "suggestedTime": "20:00"
+      },
+      "inspire": {
+        "body": "Bir hafta önce console.log'un ne olduğunu bilmiyordun. Bugün küçük programlar yazabiliyorsun. Her gün kod yazan biri olmanın ilk haftası bu."
+      },
+      "reflect": { "question": "Önümüzdeki hafta yapmak istediğin küçük bir proje fikrin var mı?" }
+    }
+  ]
+}
