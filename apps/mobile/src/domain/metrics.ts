@@ -106,3 +106,11 @@ export function weeklySuggestion(
 
   return candidates.find((c) => !dismissed.includes(c.id)) ?? null;
 }
+
+/**
+ * Kullanıcının ilk dozu mu? (Bugünden önce bitirilmiş doz yok.)
+ * İlk doz ipuçları ve ilk bitiş mesajı sadece bu durumda gösterilir.
+ */
+export function isFirstDose(doses: Dose[], today: DateKey): boolean {
+  return !doses.some((d) => d.date !== today && d.status === 'bitti');
+}

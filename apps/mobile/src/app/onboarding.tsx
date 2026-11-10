@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { StyleSheet, TextInput, View } from 'react-native';
 
+import { Tutorial } from '@/components/tutorial';
 import { Body, Button, Chip, Heading, Label, Muted, ProgressBar, Row, Screen, Segmented, Surface, Title } from '@/components/ui';
 import { Radius, Spacing } from '@/constants/theme';
 import { TRACK_LIST, TRACKS } from '@/content/library';
@@ -32,7 +33,9 @@ export default function OnboardingScreen() {
   const today = useToday();
   const completeOnboarding = useAppStore((s) => s.completeOnboarding);
 
+  // Adım 0: tanıtım (neden bu uygulama, ne bekleyebilirsin). 1–5: kişisel kurulum.
   const [step, setStep] = useState(0);
+  const [tutorialPage, setTutorialPage] = useState(0);
   const [selected, setSelected] = useState<string[]>([]);
   const [identity, setIdentity] = useState('');
   const [identityEdited, setIdentityEdited] = useState(false);
@@ -79,7 +82,6 @@ export default function OnboardingScreen() {
   };
 
   const canContinue =
-    step === 0 ||
     (step === 1 && selected.length > 0) ||
     (step === 2 && identity.trim().length > 0) ||
     step === 3 ||
@@ -97,17 +99,7 @@ export default function OnboardingScreen() {
         </View>
       )}
 
-      {step === 0 && (
-        <View style={styles.hero}>
-          <Label>Stopscrolling</Label>
-          <Title style={styles.heroTitle}>Algoritma seni değil, sen algoritmayı yönet.</Title>
-          <Body>
-            Kim olmak istediğini sen söyle. Her gün sana 10 dakikada biten, uygulanabilir bir doz hazırlayalım. Sonra
-            seni hayatına geri gönderelim.
-          </Body>
-          <Muted>Sonsuz akış yok. Beğeni yok. Kıyas sadece dünkü seninle.</Muted>
-        </View>
-      )}
+      {step === 0 && <Tutorial page={tutorialPage} onPageChange={setTutorialPage} onDone={next} />}
 
       {step === 1 && (
         <View style={styles.step}>
@@ -244,11 +236,13 @@ export default function OnboardingScreen() {
         </View>
       )}
 
-      <Button
-        label={step === 0 ? 'Başla' : step === STEPS - 1 ? 'İlk dozumu hazırla' : 'Devam'}
-        onPress={step === STEPS - 1 ? finish : next}
-        disabled={!canContinue}
-      />
+      {step > 0 && (
+        <Button
+          label={step === STEPS - 1 ? 'İlk dozumu hazırla' : 'Devam'}
+          onPress={step === STEPS - 1 ? finish : next}
+          disabled={!canContinue}
+        />
+      )}
     </Screen>
   );
 }
@@ -256,8 +250,6 @@ export default function OnboardingScreen() {
 const styles = StyleSheet.create({
   header: { gap: Spacing.sm },
   back: { alignSelf: 'flex-start', paddingHorizontal: 0 },
-  hero: { gap: Spacing.lg, paddingTop: Spacing.xxl * 2 },
-  heroTitle: { fontSize: 32, lineHeight: 40 },
   step: { gap: Spacing.md },
   spread: { justifyContent: 'space-between', flexWrap: 'nowrap' },
   flex: { flex: 1, gap: Spacing.xs },

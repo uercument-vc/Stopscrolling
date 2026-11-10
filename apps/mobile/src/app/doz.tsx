@@ -19,9 +19,11 @@ import {
 } from '@/components/ui';
 import { Radius, Spacing } from '@/constants/theme';
 import { TRACKS } from '@/content/library';
+import { FIRST_DOSE_FINISH, FIRST_DOSE_HINTS } from '@/content/tutorial';
 import { canShelve, MAX_SHELF, SHELF_OPTIONS, shelfItems, todayActions } from '@/domain/actions';
 import { COPY } from '@/domain/copy';
 import { addDays } from '@/domain/dates';
+import { isFirstDose } from '@/domain/metrics';
 import { timeWithLocative } from '@/domain/turkce';
 import type { DoseCard, Feedback } from '@/domain/types';
 import { useTheme } from '@/hooks/use-theme';
@@ -48,6 +50,7 @@ export default function DoseScreen() {
   const ensureDose = useAppStore((s) => s.ensureDose);
   const setDoseIndex = useAppStore((s) => s.setDoseIndex);
   const finishDose = useAppStore((s) => s.finishDose);
+  const firstDose = useAppStore((s) => isFirstDose(Object.values(s.doses), today));
 
   useEffect(() => {
     ensureDose(today);
@@ -78,7 +81,7 @@ export default function DoseScreen() {
         <ProgressBar value={(index + 1) / dose.cards.length} />
       </View>
 
-      <CardView key={card.id} card={card} />
+      <CardView key={card.id} card={card} hint={firstDose ? FIRST_DOSE_HINTS[card.type] : undefined} />
 
       <Row style={styles.spread}>
         <Button
@@ -99,7 +102,7 @@ export default function DoseScreen() {
   );
 }
 
-function CardView({ card }: { card: DoseCard }) {
+function CardView({ card, hint }: { card: DoseCard; hint?: string }) {
   const theme = useTheme();
   const today = useToday();
   const [showWhy, setShowWhy] = useState(false);
@@ -113,6 +116,13 @@ function CardView({ card }: { card: DoseCard }) {
         <TypeBadge type={card.type} />
         <Muted>{pillarTitle}</Muted>
       </Row>
+
+      {hint && (
+        <View style={[styles.hint, { backgroundColor: theme.accentSoft }]}>
+          <Label style={{ color: theme.accent }}>İpucu</Label>
+          <Muted style={{ color: theme.text }}>{hint}</Muted>
+        </View>
+      )}
 
       {card.title && <Title>{card.title}</Title>}
       <Body style={card.type === 'yansit' || card.type === 'ilham' ? styles.large : undefined}>{card.body}</Body>
@@ -262,10 +272,12 @@ function ActionDecision({ card }: { card: DoseCard }) {
 }
 
 function FinishView() {
+  const theme = useTheme();
   const today = useToday();
   const tone = useAppStore((s) => s.recipe.tone);
   const doseTime = useAppStore((s) => s.recipe.doseTime);
   const actions = useAppStore((s) => s.actions);
+  const firstDose = useAppStore((s) => isFirstDose(Object.values(s.doses), today));
   const planned = todayActions(actions, today);
 
   return (
@@ -273,6 +285,11 @@ function FinishView() {
       <View style={styles.finish}>
         <Title style={styles.finishTitle}>{COPY[tone].finishTitle}</Title>
         <Body>{COPY[tone].finishBody}</Body>
+        {firstDose && (
+          <View style={[styles.hint, { backgroundColor: theme.accentSoft }]}>
+            <Muted style={{ color: theme.text }}>{FIRST_DOSE_FINISH}</Muted>
+          </View>
+        )}
       </View>
 
       <View style={styles.finishList}>
@@ -306,6 +323,7 @@ const styles = StyleSheet.create({
     textAlignVertical: 'top',
   },
   why: { borderRadius: Radius.md, padding: Spacing.md },
+  hint: { borderRadius: Radius.md, padding: Spacing.md, gap: Spacing.xs },
   decision: { gap: Spacing.sm, borderTopWidth: StyleSheet.hairlineWidth, paddingTop: Spacing.lg },
   notToday: { gap: Spacing.sm },
   center: { textAlign: 'center' },

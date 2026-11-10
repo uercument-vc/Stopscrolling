@@ -1,3 +1,4 @@
+import { router } from 'expo-router';
 import { useState } from 'react';
 import { StyleSheet, Switch, View } from 'react-native';
 
@@ -159,6 +160,11 @@ export default function RecipeScreen() {
             )}
           </Surface>
         ))}
+      </Section>
+
+      <Section title="Yardım">
+        <Muted>Uygulamanın neden böyle çalıştığını ve ne bekleyebileceğini anlatan kısa tanıtım.</Muted>
+        <Button variant="secondary" label="Uygulama nasıl çalışır?" onPress={() => router.push('/tanitim')} />
       </Section>
 
       <Section title="Verilerin">

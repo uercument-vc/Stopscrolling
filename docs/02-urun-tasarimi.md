@@ -29,8 +29,30 @@ flowchart LR
 
 Döngünün en önemli adımı **Hayatta yap**. Bu adım uygulamanın dışında geçer, ve ürünün başarısını burada ölçeriz.
 
+## Tanıtım: Neden bu uygulama, ne bekleyebilirsin?
+
+Kurulumdan önce 5 sayfalık, her sayfadan atlanabilen bir tanıtım. Amaç kullanıcının iki soruya cevap bulması: **"Bunu neden kullanayım?"** ve **"Kullanınca ne olacak?"** Metin 250 kelimenin altında tutulur (yaklaşık 1–1,5 dakika; testle korunuyor). Sonradan Tarif ekranındaki "Uygulama nasıl çalışır?" bağlantısıyla tekrar açılabilir.
+
+| # | Soru | Başlık | Ana mesaj | Görsel |
+|---|---|---|---|---|
+| 1 | Neden buradasın? | Bugün kaç kez "bir tane daha" dedin? | Kaydetme yanılsaması, FOMO, kıyas. **Sorun sende değil:** Akış hedeflerin için değil, dikkatin için tasarlandı. | Solarak devam eden bir akış: "Kaydedildi", "Gündem", "Kıyas" etiketli gönderiler |
+| 2 | Burada ne farklı? | Algoritma seni değil, sen algoritmayı yönetirsin. | Kim olmak istediğini sen söylersin; her kartta onu neden gördüğün yazar. | Karşılaştırma: Sonsuz akış → Her gün biten doz, Kaydet → Bugün yap ya da tarih ver, Gizli algoritma → Senin tarifin, Beğeni ve kıyas → Dünkü sen |
+| 3 | Nasıl çalışır? | Bir gün böyle geçer | Uygulamada günde 5–15 dakika, gerisi hayatta. | Zaman çizelgesi: Sabah doz → hemen eylem → gün içinde hayatta → akşam 30 sn check-in |
+| 4 | Ne bekleyebilirsin? | Büyük bir dönüşüm değil, her gün küçük bir adım | İlk hafta küçük adımlar; 2–3. hafta ritim oturur; 1 ay sonra sosyal medya süresi başlangıçla karşılaştırılır. Ölçülen şey uygulamada geçen süre değil, hayatta yapılanlar. **Gün atlamak normal; ceza yok.** | Haftalık zaman çizelgesi |
+| 5 | Sözümüz | Seni ekranda tutmaya çalışmayacağız | Sonsuz akış, beğeni, korkutan bildirim, reklam yok. Kullanıcıdan tek beklenti: günde birkaç dakika ve küçük bir adım. | Söz listesi |
+
+Kurallar:
+- **Vaat değil, beklenti.** "Hayatın değişecek" gibi garanti verilmez. Ne yapacağımızı ve neyi ölçeceğimizi söyleriz.
+- **Suçlama yok.** İlk sayfa kullanıcıyı değil, akışın tasarımını sorumlu tutar.
+- **Atlanabilir.** Her sayfada "Atla" var; zorunlu tanıtım, sabırsız kullanıcıyı kaybettirir.
+
+### İlk doz ipuçları
+
+Tanıtım genel resmi anlatır; kart türleri ise ilk kez görüldüğü anda anlatılır. İlk dozda her kartın üstünde kısa bir "İpucu" kutusu çıkar (öğren, uygula, ilham, yansıt). İlk doz bitince kullanıcıya bir sonraki adım söylenir: "Şimdi uygulamayı kapat; akşam eylemini işaretle." İkinci günden itibaren ipuçları gösterilmez.
+
 ## Onboarding (en fazla 3 dakika)
 
+0. **Tanıtım** (yukarıda; atlanabilir).
 1. **"5 yıl sonraki sen nasıl biri?"** Hazır kimlik şablonlarından birini seç (Okuyan, Hareket eden, Üreten, Yazılım öğrenen, Odaklanan) ya da kendin yaz. Sistem bunu tek cümlelik bir kimlik ifadesine çevirir, sen düzeltirsin.
 2. **Sütunlarını seç.** En fazla 3 (ücretsiz planda 1). Mesaj: "Ne kadar az, o kadar iyi."
 3. **Her sütun için neden ve seviye.** "Bunu neden istiyorsun?" cevabı saklanır ve zor günlerde kullanıcıya kendi cümlesiyle hatırlatılır.

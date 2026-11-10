@@ -22,7 +22,7 @@ Döngüyü birkaç gün boyunca denemek için **Bugün** ekranının altındaki 
 | Komut | Ne yapar |
 |---|---|
 | `npm start` | Geliştirme sunucusu |
-| `npm test` | Domain mantığı ve içerik testleri (Jest) |
+| `npm test` | Domain mantığı, içerik ve tanıtım metni testleri (Jest) |
 | `npm run typecheck` | TypeScript kontrolü |
 | `npm run lint` | ESLint |
 
@@ -32,7 +32,8 @@ Döngüyü birkaç gün boyunca denemek için **Bugün** ekranının altındaki 
 src/
 ├── app/                    # Ekranlar (expo-router, dosya tabanlı yönlendirme)
 │   ├── _layout.tsx         # Kök: onboarding bitmeden sekmeler korunur
-│   ├── onboarding.tsx      # 6 adım: kimlik, sütunlar, neden, zaman, tarif
+│   ├── onboarding.tsx      # Tanıtım + 5 adım: kimlik, sütunlar, neden, zaman, tarif
+│   ├── tanitim.tsx         # Tanıtımı sonradan tekrar izleme (Tarif → Yardım)
 │   ├── doz.tsx             # Günlük doz akışı + bitiş ekranı
 │   └── (tabs)/             # Bugün · Eylemler · Yolum · Tarif
 ├── domain/                 # Saf iş mantığı (UI'dan bağımsız, test edilir)
@@ -44,6 +45,7 @@ src/
 │   └── turkce.ts           # Türkçe büyük harf, saat ekleri ("21:30'da", "20:00'de")
 ├── store/app-store.ts      # Zustand + kalıcı depolama
 ├── content/library.ts      # Repo kökündeki content/tracks/*.json'u yükler
+├── content/tutorial.ts     # Tanıtım ve ilk doz ipucu metinleri (kodsuz düzenlenebilir)
 ├── services/notifications  # Yerel bildirimler (web'de boş uygulama)
 └── components/             # UI parçaları
 ```
