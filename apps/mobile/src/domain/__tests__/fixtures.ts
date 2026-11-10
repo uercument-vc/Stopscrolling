@@ -27,6 +27,8 @@ export function makeTrack(id: string, days = 7): Track {
     identityPhrase: id,
     description: '',
     whyPlaceholder: '',
+    keywords: [],
+    levelQuestion: { question: 'Soru?', options: ['A', 'B', 'C'] },
     level: 'baslangic',
     status: 'draft',
     weeks: [1, 2, 3, 4].map((week) => ({ week, theme: `Hafta ${week}` })),

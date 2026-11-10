@@ -5,6 +5,8 @@
   "identityPhrase": "tüketmek yerine üreten",
   "description": "Yazmak, çizmek, paylaşmak: tüketiciden üreticiye",
   "whyPlaceholder": "Ör. Kafamdakileri dışarı çıkarmak ve bir şey ortaya koymak istiyorum.",
+  "keywords": ["yazı", "yazılar", "yazar", "blog*", "çiz*", "resim*", "müzik*", "fotoğraf*", "üret*", "yaratıc*", "hikaye*", "hikâye*", "podcast*", "tasarım*", "paylaş*"],
+  "levelQuestion": { "question": "Son bir ayda kendin için bir şey ürettin mi (yazı, çizim, müzik...)?", "options": ["Hayır", "Birkaç kez", "Düzenli olarak"] },
   "level": "baslangic",
   "status": "draft",
   "weeks": [

@@ -11,7 +11,7 @@ Sonsuz feed yerine bitiş çizgisi olan bir gün. Kaydetmek yerine yapmak. Başk
 **Faz 1 iskeleti hazır.** Çekirdek döngü uçtan uca çalışıyor (çevrimdışı, cihazda):
 
 - **Tanıtım:** 5 sayfa, atlanabilir. Kullanıcı neden bu uygulamayı kullanmalı, kullanınca ne olacak, ne bekleyebilir. İlk dozda kart türlerini anlatan ipuçları.
-- **Onboarding:** 5 kimlik şablonu, kimlik cümlesi, sütunlar, nedenler, zaman bütçesi, tarif önizlemesi.
+- **Kurulum:** Kullanıcı kendini anlatır (şu anki sen, olmak istediğin özellikler, 5 yıl sonraki bir günü); sistem gerekçesiyle yol önerir, karşılığı olmayan hedefleri dürüstçe söyler; kimlik cümlesi özelliklerden kurulur. Yolum ekranında "Seni nasıl tanıyoruz?" bölümü.
 - **Günlük doz:** Öğren → uygula → ilham → yansıt. Her kartta "Bunu neden görüyorum?" ve açık geri bildirim; doz bitince "Bugünlük bu kadar." ekranı.
 - **Uygula kartı:** "Kaydet" yok. Seçenekler: bugün yap, küçük versiyonu yap, tarihli olarak rafa koy (en fazla 7 öğe) ya da geç.
 - **Eylemler:** Akşam check-in (yaptım / kısmen / olmadı) ve önceki günlerden kalanlar.
@@ -56,7 +56,7 @@ Araçlar:
 ## Testler
 
 ```bash
-cd apps/mobile && npm test && npm run typecheck && npm run lint   # 77 test
+cd apps/mobile && npm test && npm run typecheck && npm run lint   # 93 test
 supabase/scripts/rls-smoke-test.sh                                # şema + RLS (yerel PostgreSQL)
 cd supabase/functions/kisisellestir && deno test                  # kişiselleştirme (sahte model)
 ```

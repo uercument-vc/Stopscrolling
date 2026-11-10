@@ -5,6 +5,8 @@
   "identityPhrase": "her gün okuyan",
   "description": "Okuma alışkanlığı, odak ve okuduğunu hatırlamak",
   "whyPlaceholder": "Ör. Daha derin düşünmek ve ekrandan uzaklaşmak istiyorum.",
+  "keywords": ["kitap*", "okumak", "okuma*", "okuyan", "okuyorum", "okurum", "okuyamıyorum", "roman*", "dergi*", "edebiyat*"],
+  "levelQuestion": { "question": "Son 3 ayda kaç kitap bitirdin?", "options": ["Hiç", "1–2 kitap", "3 ve üzeri"] },
   "level": "baslangic",
   "status": "draft",
   "weeks": [

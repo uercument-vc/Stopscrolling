@@ -5,6 +5,8 @@
   "identityPhrase": "dikkatini koruyan",
   "description": "Dijital minimalizm, derin çalışma ve dikkat",
   "whyPlaceholder": "Ör. Dağılmadan çalışabilmek ve zihnimi sakinleştirmek istiyorum.",
+  "keywords": ["telefon*", "sosyal", "instagram*", "tiktok*", "youtube*", "odak*", "dikkat*", "dağıl*", "konsantr*", "ekran*", "erteli*", "erteleme*", "scroll*", "kaydır*", "sakin*", "stres*", "meditasyon*"],
+  "levelQuestion": { "question": "Telefonu eline almadan kaç dakika çalışabiliyorsun?", "options": ["10 dakikadan az", "10–30 dakika", "30 dakikadan fazla"] },
   "level": "baslangic",
   "status": "draft",
   "weeks": [

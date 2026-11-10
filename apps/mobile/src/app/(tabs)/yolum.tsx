@@ -4,8 +4,10 @@ import { StyleSheet, TextInput, View } from 'react-native';
 import { Body, Button, Heading, Label, Muted, ProgressBar, Row, Screen, Section, Surface, Title } from '@/components/ui';
 import { WeekStrip } from '@/components/week-strip';
 import { Radius, Spacing } from '@/constants/theme';
-import { PLANNED_TRACK_DAYS, TRACKS } from '@/content/library';
+import { PLANNED_TRACK_DAYS, TRACKS, TRAITS } from '@/content/library';
 import { summarizeWeek, weeklySuggestion } from '@/domain/metrics';
+import { motivationPhrase, PRODUCTIVE_TIMES } from '@/domain/profile';
+import { toTurkishLower } from '@/domain/turkce';
 import { weightPercents } from '@/domain/recipe';
 import type { Level } from '@/domain/types';
 import { useTheme } from '@/hooks/use-theme';
@@ -18,7 +20,8 @@ export default function PathScreen() {
   const theme = useTheme();
   const today = useToday();
   const state = useAppStore();
-  const { identity, pillars, recipe, doses, actions, dismissedSuggestions, baselineSocialHours } = state;
+  const { identity, pillars, recipe, doses, actions, dismissedSuggestions, profile } = state;
+  const baselineSocialHours = profile.baselineSocialHours;
   const [editing, setEditing] = useState(false);
   const [draft, setDraft] = useState(identity);
 
@@ -73,6 +76,8 @@ export default function PathScreen() {
         )}
       </Surface>
 
+      <ProfileSection />
+
       <Section title="Bu hafta">
         <WeekStrip summary={week} today={today} />
         {pillars.map((p) => {
@@ -123,6 +128,9 @@ export default function PathScreen() {
                 {LEVEL_LABELS[p.level]} · {completed}/{PLANNED_TRACK_DAYS} gün tamamlandı
               </Muted>
               <ProgressBar value={completed / PLANNED_TRACK_DAYS} />
+              {p.motivatedBy?.length ? (
+                <Muted style={{ color: theme.accent }}>{motivationPhrase(p.motivatedBy)}</Muted>
+              ) : null}
               {p.why ? <Body style={styles.why}>“{p.why}”</Body> : null}
               <View style={styles.weeks}>
                 {track.weeks.map((w) => {
@@ -155,7 +163,7 @@ export default function PathScreen() {
       {baselineSocialHours ? (
         <Section title="Başlangıç noktan">
           <Muted>
-            Başladığında günde {baselineSocialHours.toLocaleLowerCase('tr-TR')} sosyal medyada olduğunu söylemiştin. Bir
+            Başladığında günde {toTurkishLower(baselineSocialHours)} sosyal medyada olduğunu söylemiştin. Bir
             ay sonra tekrar bakacağız.
           </Muted>
         </Section>
@@ -164,7 +172,72 @@ export default function PathScreen() {
   );
 }
 
+/**
+ * "Seni nasıl tanıyoruz?": Sistemin kullanıcı hakkında bildiği her şey ve nerede kullanıldığı.
+ * Gizli profil yok; algoritma gibi kullanıcının tanımı da görünür.
+ */
+function ProfileSection() {
+  const profile = useAppStore((s) => s.profile);
+  const traitLabels = profile.desiredTraits.map((id) => TRAITS.find((t) => t.id === id));
+  const withPath = traitLabels.filter((t) => t && t.tracks.length > 0).map((t) => t!.label);
+  const withoutPath = traitLabels.filter((t) => t && t.tracks.length === 0).map((t) => t!.label);
+  const productive = PRODUCTIVE_TIMES.find((p) => p.value === profile.productiveTime)?.label;
+
+  if (profile.desiredTraits.length === 0 && !profile.selfDescription && !profile.futureDay) return null;
+
+  return (
+    <Section title="Seni nasıl tanıyoruz?">
+      <Surface>
+        {withPath.length > 0 && (
+          <View style={styles.profileRow}>
+            <Label>Olmak istediğin</Label>
+            <Body>{withPath.join(', ')}</Body>
+            <Muted>Yollarını ve her kartın “Bunu neden görüyorum?” açıklamasını belirliyor.</Muted>
+          </View>
+        )}
+        {withoutPath.length > 0 && (
+          <View style={styles.profileRow}>
+            <Label>Henüz yolu olmayan hedeflerin</Label>
+            <Body>{withoutPath.join(', ')}</Body>
+            <Muted>Hangi yolların hazırlanacağına karar verirken kullanılacak.</Muted>
+          </View>
+        )}
+        {profile.selfDescription ? (
+          <View style={styles.profileRow}>
+            <Label>Şu anki sen</Label>
+            <Body style={styles.why}>“{profile.selfDescription}”</Body>
+          </View>
+        ) : null}
+        {profile.futureDay ? (
+          <View style={styles.profileRow}>
+            <Label>5 yıl sonraki bir günün</Label>
+            <Body style={styles.why}>“{profile.futureDay}”</Body>
+          </View>
+        ) : null}
+        {(profile.selfDescription || profile.futureDay) && (
+          <Muted>
+            Yazdıkların şu an yol önerisi için kullanılıyor. Kişiselleştirme servisi bağlandığında kart metinleri de
+            bunlara göre uyarlanacak.
+          </Muted>
+        )}
+        <View style={styles.profileRow}>
+          <Label>Alışkanlıkların</Label>
+          <Muted>
+            {[
+              profile.timeSinks.length ? `Boş zamanın: ${toTurkishLower(profile.timeSinks.join(', '))}` : '',
+              productive ? `Kendine vakit: ${toTurkishLower(productive)}` : '',
+            ]
+              .filter(Boolean)
+              .join(' · ')}
+          </Muted>
+        </View>
+      </Surface>
+    </Section>
+  );
+}
+
 const styles = StyleSheet.create({
+  profileRow: { gap: 2 },
   spread: { justifyContent: 'space-between', flexWrap: 'nowrap' },
   left: { alignSelf: 'flex-start', paddingHorizontal: 0 },
   input: { borderWidth: 1, borderRadius: Radius.md, padding: Spacing.md, fontSize: 18, minHeight: 80 },

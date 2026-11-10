@@ -32,12 +32,13 @@ Döngüyü birkaç gün boyunca denemek için **Bugün** ekranının altındaki 
 src/
 ├── app/                    # Ekranlar (expo-router, dosya tabanlı yönlendirme)
 │   ├── _layout.tsx         # Kök: onboarding bitmeden sekmeler korunur
-│   ├── onboarding.tsx      # Tanıtım + 5 adım: kimlik, sütunlar, neden, zaman, tarif
+│   ├── onboarding.tsx      # Tanıtım + kurulum: şu anki sen, olmak istediğin sen, öneriler, kimlik, neden, zaman, tarif
 │   ├── tanitim.tsx         # Tanıtımı sonradan tekrar izleme (Tarif → Yardım)
 │   ├── doz.tsx             # Günlük doz akışı + bitiş ekranı
 │   └── (tabs)/             # Bugün · Eylemler · Yolum · Tarif
 ├── domain/                 # Saf iş mantığı (UI'dan bağımsız, test edilir)
 │   ├── dose-builder.ts     # Dozu kuran algoritma: sütun seçimi, kartlar, "neden" açıklamaları
+│   ├── profile.ts          # Kurulum: özellik + metin → gerekçeli yol önerisi, kimlik ve "neden" cümleleri
 │   ├── recipe.ts           # Tarif: ağırlıklar, değişiklik açıklamaları, kimlik cümlesi
 │   ├── metrics.ts          # Anlamlı gün (North Star), haftalık özet, öner–onayla
 │   ├── actions.ts          # Eylem listeleri, raf kuralı (en fazla 7)
@@ -66,7 +67,8 @@ Sadece açık sinyaller kullanılır: Kullanıcının belirlediği ağırlıklar
 
 - **Bildirimler** sadece iOS/Android'de çalışır, web'de devre dışı. Gerçek cihazda henüz test edilmedi.
 - **İçerik taslak:** 5 yolun ilk haftası (7 gün) yazıldı; `status: "draft"`, yani yayından önce insan gözünden geçmeli. 2–4. haftalar "Hazırlanıyor" görünür.
-- **Seviye seçimi** (orta/ileri) kaydedilir ama şimdilik herkes temel yoldan başlar.
+- **Seviye** somut bir soruyla belirlenir ve kaydedilir, ama şimdilik herkes temel yoldan başlar (orta/ileri yollar yazılmadı).
+- **Yol önerisi kural tabanlı:** Özellik + anahtar kelime eşleşmesi. "Yazılımcıyım" (mevcut durum) ile "yazılım öğrenmek istiyorum" (hedef) arasındaki farkı anlamaz; zayıf eşleşmeler işaretli gelmez.
 - **Ödeme duvarı yok:** Ücretsiz/premium ayrımı (1 sütun / 3 sütun) henüz uygulanmadı.
 - Bu ortamda Metro dosya değişikliklerini her zaman yakalayamadı; değişiklik görünmezse `npx expo start --clear`.
 

@@ -7,10 +7,12 @@
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
 db="stopscrolling_rls_test_$$"
-migration="$(ls "$here"/../migrations/*.sql | head -1)"
+# Tüm göçleri sırayla tek dosyada birleştir
+migration="$(mktemp)"
+cat "$here"/../migrations/*.sql > "$migration"
 
 createdb "$db"
-trap 'dropdb --if-exists "$db"' EXIT
+trap 'dropdb --if-exists "$db"; rm -f "$migration"' EXIT
 psql -q -v ON_ERROR_STOP=1 -d "$db" \
   -v migration="$migration" -v seed="$here/../seed.sql" \
   -f "$here/rls-smoke-test.sql"

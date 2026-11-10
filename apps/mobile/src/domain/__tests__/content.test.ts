@@ -17,6 +17,13 @@ describe.each(TRACK_LIST.map((t) => [t.id, t] as const))('yol: %s', (_id, track)
     expect(track.weeks).toHaveLength(4);
   });
 
+  it('kurulum için anahtar kelimeler ve somut bir seviye sorusu var', () => {
+    expect(track.keywords.length).toBeGreaterThanOrEqual(5);
+    for (const k of track.keywords) expect(k).toMatch(/^[a-zçğıöşüâîû]+\*?$/);
+    expect(track.levelQuestion.question.trim().endsWith('?')).toBe(true);
+    expect(track.levelQuestion.options).toHaveLength(3);
+  });
+
   it('günler 1den başlayıp boşluksuz ilerliyor', () => {
     expect(track.days.map((d) => d.day)).toEqual(track.days.map((_, i) => i + 1));
   });

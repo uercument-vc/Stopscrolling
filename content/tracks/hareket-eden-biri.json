@@ -5,6 +5,8 @@
   "identityPhrase": "bedenini her gün hareket ettiren",
   "description": "Sıfırdan, kendi temponda hareket alışkanlığı",
   "whyPlaceholder": "Ör. Gün boyu daha enerjik hissetmek istiyorum.",
+  "keywords": ["spor*", "yürü*", "koş*", "fit", "formda", "kilo*", "sağlık*", "egzersiz*", "antrenman*", "enerji*", "yoga*", "bisiklet*", "yüzme*", "hareket*"],
+  "levelQuestion": { "question": "Haftada kaç gün en az 20 dakika hareket ediyorsun?", "options": ["Neredeyse hiç", "1–2 gün", "3 gün ve üzeri"] },
   "level": "baslangic",
   "status": "draft",
   "weeks": [

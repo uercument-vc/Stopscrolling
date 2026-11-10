@@ -1,3 +1,4 @@
+import { motivationPhrase } from './profile';
 import { slotsForBudget, weightPercents } from './recipe';
 import type { DateKey, Dose, DoseCard, Pillar, Recipe, Track } from './types';
 
@@ -119,7 +120,13 @@ export function buildDose({ date, pillars, recipe, tracks, shownCounts }: BuildD
       body: trackDay.learn.body,
       source: trackDay.learn.source,
       trackRef: ref,
-      why: `${track.pillarTitle} sütunun (%${percents[pillar.id]}) · Yol: ${week}. hafta, ${dayInWeek}. gün, "${trackDay.theme}"${selectionNote}`,
+      why: [
+        `${track.pillarTitle} sütunun (%${percents[pillar.id]})`,
+        motivationPhrase(pillar.motivatedBy ?? []),
+        `Yol: ${week}. hafta, ${dayInWeek}. gün, "${trackDay.theme}"`,
+      ]
+        .filter(Boolean)
+        .join(' · ') + selectionNote,
     });
     cards.push({
       id: id(pillar.id, 'uygula'),

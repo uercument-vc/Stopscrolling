@@ -27,3 +27,16 @@ export function timeWithLocative(time: string): string {
   const [hour, minute] = time.split(':').map(Number);
   return `${time}'${locativeForNumber(minute === 0 ? hour : minute)}`;
 }
+
+/**
+ * Türkçe küçük harf: I → ı, İ → i. ("İSTANBUL" → "istanbul", "IŞIK" → "ışık")
+ * JavaScript'in toLowerCase'i "İ"yi "i̇" (noktalı birleşik karakter) yapar; bu yüzden önce biz çeviriyoruz.
+ */
+export function toTurkishLower(text: string): string {
+  return text.replace(/İ/g, 'i').replace(/I/g, 'ı').toLowerCase();
+}
+
+/** Cümle başı büyük harf, Türkçe kurala göre: "istanbul" → "İstanbul". */
+export function capitalizeTurkish(text: string): string {
+  return text ? toTurkishUpper(text[0]) + text.slice(1) : text;
+}

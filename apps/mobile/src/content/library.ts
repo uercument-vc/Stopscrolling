@@ -8,8 +8,9 @@ import odak from '@content/tracks/odaklanan-biri.json';
 import okuma from '@content/tracks/okuyan-biri.json';
 import uretim from '@content/tracks/ureten-biri.json';
 import yazilim from '@content/tracks/yazilim-ogrenen-biri.json';
+import traitCatalog from '@content/traits.json';
 
-import type { Track } from '@/domain/types';
+import type { Track, Trait } from '@/domain/types';
 
 /** Onboarding'de gösterilme sırası. */
 export const TRACK_LIST: Track[] = [okuma, hareket, uretim, yazilim, odak] as Track[];
@@ -18,3 +19,6 @@ export const TRACKS: Record<string, Track> = Object.fromEntries(TRACK_LIST.map((
 
 /** Bir yolun toplam planlanan gün sayısı (4 hafta). Yazılmış gün sayısı bundan az olabilir. */
 export const PLANNED_TRACK_DAYS = 28;
+
+/** "Olmak istediğin sen" adımındaki özellikler (content/traits.json). */
+export const TRAITS: Trait[] = traitCatalog.traits;

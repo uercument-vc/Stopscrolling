@@ -50,15 +50,38 @@ Kurallar:
 
 Tanıtım genel resmi anlatır; kart türleri ise ilk kez görüldüğü anda anlatılır. İlk dozda her kartın üstünde kısa bir "İpucu" kutusu çıkar (öğren, uygula, ilham, yansıt). İlk doz bitince kullanıcıya bir sonraki adım söylenir: "Şimdi uygulamayı kapat; akşam eylemini işaretle." İkinci günden itibaren ipuçları gösterilmez.
 
-## Onboarding (en fazla 3 dakika)
+## Kurulum: Sistem senin neye dönüşmek istediğini nereden biliyor?
+
+Kurulum "hazır kutu seç" değil, **"kendini anlat → sistem yorumlasın → sen onayla"** mantığıyla çalışır. Sistem kullanıcıyı üç kaynaktan tanır:
+
+| Kaynak | Ne soruluyor / ne izleniyor | Nerede kullanılıyor |
+|---|---|---|
+| **Şu anki sen** | Boş zamanın nereye gidiyor, günde kaç saat sosyal medya, günün hangi saati senin, kendini bir iki cümleyle anlatman | Doz saati önerisi, 1 ay sonraki karşılaştırma, yol önerisi (yazdıklarındaki kelimeler), kişiselleştirme |
+| **Olmak istediğin sen** | En fazla 5 özellik (Odaklı, Sakin, Disiplinli, Yaratıcı...) ve "5 yıl sonra sıradan bir günün" anlatımı | Yol önerisi, kimlik cümlesi, her kartın "Bunu neden görüyorum?" açıklaması ("Odaklı ve sakin biri olmak istediğin için") |
+| **Yaptıkların** (kurulumdan sonra) | Kart geri bildirimleri, yapılan / atlanan eylemler, yansıtma cevapları | Haftalık ayar önerileri, kişiselleştirme |
+
+### Öneri nasıl yapılır? (şimdilik kural tabanlı, cihazda)
+
+- Her özellik bir ya da birkaç yola bağlıdır (`content/traits.json`). Ana yol +2, ikincil yol +1 puan.
+- Kullanıcının yazdıkları, her yolun anahtar kelimeleriyle eşleşir (`content/tracks/*.json → keywords`); her eşleşme +1 (en fazla 3). Kullanıcının açık seçimi, yazdıklarından daha ağır basar.
+- Başlangıçta sadece doğrudan bir özelliğe dayanan en güçlü 2 yol işaretli gelir; kullanıcı en fazla 3'e çıkarabilir.
+- **Her önerinin gerekçesi gösterilir:** "Seçtiğin özellikler: Odaklı · Yazdıklarından: “telefonda”".
+- **Karşılığı olmayan hedefler gizlenmez:** "Sabırlı", "Kendine güvenen" gibi hedefler için hazır yol yoksa kullanıcıya açıkça söylenir. Bu seçimler, hangi yolların hazırlanacağına karar vermek için talep verisi olur (`trait_demand` görünümü).
+- Bilinen sınır: Kurallar "yazılımcıyım" (mevcut durum) ile "yazılım öğrenmek istiyorum" (hedef) arasındaki farkı anlamaz. Zayıf eşleşmeler işaretli gelmez ve gerekçesiyle gösterilir. Kişiselleştirme servisi bağlandığında aynı bilgiler Claude'a gider ve hem öneri hem kart metinleri bu ayrımı gözetebilir.
+
+### Adımlar (hedef: 3 dakika)
 
 0. **Tanıtım** (yukarıda; atlanabilir).
-1. **"5 yıl sonraki sen nasıl biri?"** Hazır kimlik şablonlarından birini seç (Okuyan, Hareket eden, Üreten, Yazılım öğrenen, Odaklanan) ya da kendin yaz. Sistem bunu tek cümlelik bir kimlik ifadesine çevirir, sen düzeltirsin.
-2. **Sütunlarını seç.** En fazla 3 (ücretsiz planda 1). Mesaj: "Ne kadar az, o kadar iyi."
-3. **Her sütun için neden ve seviye.** "Bunu neden istiyorsun?" cevabı saklanır ve zor günlerde kullanıcıya kendi cümlesiyle hatırlatılır.
-4. **Zaman bütçesi.** "Günde bana kaç dakika ayırırsın?" (5 / 10 / 15). Bir de başlangıç ölçümü: "Şu an günde kaç saat sosyal medyadasın?" (İsteğe bağlı olarak ekran süresi ekran görüntüsü.)
-5. **Tarif önizlemesi.** "Algoritman bu. İstediğin an değiştirebilirsin." Kullanıcı kontrolün kendisinde olduğunu ilk dakikadan görür.
-6. **İlk doz hemen gelir.** Bekletme yok. İlk "aha" anı ilk 3 dakikada yaşanmalı.
+1. **Şu anki sen.** Boş zaman, sosyal medya süresi (başlangıç ölçümü), günün hangi saati senin, kendini bir iki cümleyle anlatman (isteğe bağlı).
+2. **Olmak istediğin sen.** En fazla 5 özellik + "5 yıl sonra sıradan bir günün" (isteğe bağlı).
+3. **Sana önerilen yollar.** Gerekçeleriyle; yolu olmayan hedefler ayrı kutuda; diğer yollar da seçilebilir. En fazla 3 (ücretsiz planda 1).
+4. **Kimlik cümlen.** Özelliklerden kurulur ("Ben okuyan, odaklı ve sabırlı biriyim."), kullanıcı düzenler.
+5. **Neden ve nereden başlıyorsun?** Her yol için "neden" (zor günlerde kendi cümlesiyle hatırlatılır) ve soyut "başlangıç/orta/ileri" yerine somut bir soru: "Son 3 ayda kaç kitap bitirdin?"
+6. **Zaman.** Günlük süre (5 / 10 / 15 dk) ve doz saati (1. adımdaki cevaba göre önceden doldurulur).
+7. **Tarif önizlemesi.** "Algoritman bu. İstediğin an değiştirebilirsin."
+8. **İlk doz hemen gelir.**
+
+Kurulumdan sonra **Yolum → "Seni nasıl tanıyoruz?"** bölümü, sistemin kullanıcı hakkında bildiği her şeyi ve nerede kullandığını gösterir. Gizli profil yok.
 
 ## Günlük Doz anatomisi
 

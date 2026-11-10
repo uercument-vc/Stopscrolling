@@ -5,6 +5,8 @@
   "identityPhrase": "her gün kod yazan",
   "description": "Temel kavramlar ve her gün küçük bir pratik",
   "whyPlaceholder": "Ör. Kendi projelerimi yapabilmek ve kariyerimi değiştirmek istiyorum.",
+  "keywords": ["kod*", "yazılım*", "programla*", "programcı*", "developer*", "geliştirici*", "python*", "javascript*", "bilgisayar*", "teknoloji*", "uygulama"],
+  "levelQuestion": { "question": "Daha önce kod yazdın mı?", "options": ["Hiç yazmadım", "Biraz denedim", "Düzenli yazıyorum"] },
   "level": "baslangic",
   "status": "draft",
   "weeks": [

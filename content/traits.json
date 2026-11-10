@@ -1,0 +1,24 @@
+{
+  "_aciklama": "Kurulumda 'Olmak istediğin sen' adımında gösterilen özellikler. tracks: bu özelliği besleyen yollar (ilk sıradaki ana yol). Boş liste = henüz yolu yok; kullanıcıya dürüstçe söylenir ve içerik yol haritası için talep olarak kaydedilir.",
+  "traits": [
+    { "id": "okuyan", "label": "Okuyan", "tracks": ["okuyan-biri"] },
+    { "id": "derin-dusunen", "label": "Derin düşünen", "tracks": ["okuyan-biri", "odaklanan-biri"] },
+    { "id": "merakli", "label": "Meraklı", "tracks": ["okuyan-biri", "yazilim-ogrenen-biri"] },
+    { "id": "saglikli", "label": "Sağlıklı", "tracks": ["hareket-eden-biri"] },
+    { "id": "enerjik", "label": "Enerjik", "tracks": ["hareket-eden-biri"] },
+    { "id": "formda", "label": "Formda", "tracks": ["hareket-eden-biri"] },
+    { "id": "disiplinli", "label": "Disiplinli", "tracks": ["hareket-eden-biri", "odaklanan-biri"] },
+    { "id": "odakli", "label": "Odaklı", "tracks": ["odaklanan-biri"] },
+    { "id": "sakin", "label": "Sakin", "tracks": ["odaklanan-biri"] },
+    { "id": "uretken", "label": "Üretken", "tracks": ["ureten-biri", "odaklanan-biri"] },
+    { "id": "yaratici", "label": "Yaratıcı", "tracks": ["ureten-biri"] },
+    { "id": "kendini-ifade-eden", "label": "Kendini ifade eden", "tracks": ["ureten-biri"] },
+    { "id": "teknik-becerili", "label": "Teknik becerili", "tracks": ["yazilim-ogrenen-biri"] },
+    { "id": "problem-cozen", "label": "Problem çözen", "tracks": ["yazilim-ogrenen-biri"] },
+    { "id": "sabirli", "label": "Sabırlı", "tracks": [] },
+    { "id": "kendine-guvenen", "label": "Kendine güvenen", "tracks": [] },
+    { "id": "sosyal", "label": "Sosyal", "tracks": [] },
+    { "id": "parasini-yoneten", "label": "Parasını yöneten", "tracks": [] },
+    { "id": "yabanci-dil-konusan", "label": "Yabancı dil konuşan", "tracks": [] }
+  ]
+}

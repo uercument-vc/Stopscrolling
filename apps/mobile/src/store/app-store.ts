@@ -16,6 +16,7 @@ import type {
   Feedback,
   OnboardingInput,
   Pillar,
+  Profile,
   Recipe,
   RecipeChange,
   TimeOfDay,
@@ -29,7 +30,8 @@ import { notifications } from '@/services/notifications';
 export interface AppState {
   onboarded: boolean;
   identity: string;
-  baselineSocialHours: string;
+  /** Kullanıcının kurulumda kendini anlattığı bilgiler. */
+  profile: Profile;
   pillars: Pillar[];
   recipe: Recipe;
   recipeHistory: RecipeChange[];
@@ -70,10 +72,19 @@ const DEFAULT_RECIPE: Recipe = {
   doseTime: '07:30',
 };
 
+const EMPTY_PROFILE: Profile = {
+  timeSinks: [],
+  productiveTime: 'sabah',
+  baselineSocialHours: '',
+  selfDescription: '',
+  desiredTraits: [],
+  futureDay: '',
+};
+
 const initialData = {
   onboarded: false,
   identity: '',
-  baselineSocialHours: '',
+  profile: EMPTY_PROFILE,
   pillars: [] as Pillar[],
   recipe: DEFAULT_RECIPE,
   recipeHistory: [] as RecipeChange[],
@@ -116,6 +127,7 @@ export const useAppStore = create<AppState>()(
           title: TRACKS[p.trackId].pillarTitle,
           why: p.why.trim(),
           level: p.level,
+          motivatedBy: p.motivatedBy,
           currentDay: 1,
         }));
         const recipe: Recipe = {
@@ -129,7 +141,11 @@ export const useAppStore = create<AppState>()(
           ...initialData,
           onboarded: true,
           identity: input.identity.trim(),
-          baselineSocialHours: input.baselineSocialHours,
+          profile: {
+            ...input.profile,
+            selfDescription: input.profile.selfDescription.trim(),
+            futureDay: input.profile.futureDay.trim(),
+          },
           pillars,
           recipe,
           recipeHistory: [
@@ -288,11 +304,20 @@ export const useAppStore = create<AppState>()(
     {
       name: 'stopscrolling-v1',
       storage: createJSONStorage(() => AsyncStorage),
-      version: 1,
+      // v2: Kurulum profili eklendi; eski "baselineSocialHours" profile taşındı.
+      version: 2,
+      migrate: (persisted, version) => {
+        const state = persisted as Record<string, unknown>;
+        if (version < 2) {
+          state.profile = { ...EMPTY_PROFILE, baselineSocialHours: (state.baselineSocialHours as string) ?? '' };
+          delete state.baselineSocialHours;
+        }
+        return state as unknown as AppState;
+      },
       partialize: (s) => ({
         onboarded: s.onboarded,
         identity: s.identity,
-        baselineSocialHours: s.baselineSocialHours,
+        profile: s.profile,
         pillars: s.pillars,
         recipe: s.recipe,
         recipeHistory: s.recipeHistory,

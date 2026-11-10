@@ -2,12 +2,13 @@
 -- Elle düzenleme; kaynak content/tracks/*.json
 
 -- Hareket eden biri (hareket-eden-biri.json)
-insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, level, status, weeks)
-values ('hareket-eden-biri', 'Hareket eden biri', 'Hareket', 'bedenini her gün hareket ettiren', 'Sıfırdan, kendi temponda hareket alışkanlığı', 'Ör. Gün boyu daha enerjik hissetmek istiyorum.', 'baslangic', 'draft', '[{"week":1,"theme":"Harekete başla"},{"week":2,"theme":"Ritmi oturt"},{"week":3,"theme":"Biraz zorla"},{"week":4,"theme":"Hareketi kimliğin yap"}]'::jsonb)
+insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, keywords, level_question, level, status, weeks)
+values ('hareket-eden-biri', 'Hareket eden biri', 'Hareket', 'bedenini her gün hareket ettiren', 'Sıfırdan, kendi temponda hareket alışkanlığı', 'Ör. Gün boyu daha enerjik hissetmek istiyorum.', array['spor*', 'yürü*', 'koş*', 'fit', 'formda', 'kilo*', 'sağlık*', 'egzersiz*', 'antrenman*', 'enerji*', 'yoga*', 'bisiklet*', 'yüzme*', 'hareket*']::text[], '{"question":"Haftada kaç gün en az 20 dakika hareket ediyorsun?","options":["Neredeyse hiç","1–2 gün","3 gün ve üzeri"]}'::jsonb, 'baslangic', 'draft', '[{"week":1,"theme":"Harekete başla"},{"week":2,"theme":"Ritmi oturt"},{"week":3,"theme":"Biraz zorla"},{"week":4,"theme":"Hareketi kimliğin yap"}]'::jsonb)
 on conflict (id) do update set
   template_title = excluded.template_title, pillar_title = excluded.pillar_title,
   identity_phrase = excluded.identity_phrase, description = excluded.description,
-  why_placeholder = excluded.why_placeholder, level = excluded.level,
+  why_placeholder = excluded.why_placeholder, keywords = excluded.keywords,
+  level_question = excluded.level_question, level = excluded.level,
   status = excluded.status, weeks = excluded.weeks, updated_at = now();
 insert into public.track_days (track_id, day, content) values ('hareket-eden-biri', 1, '{"theme":"En küçük adım","learn":{"title":"Başlamak en zor kısım","body":"Hareket alışkanlığında en büyük engel çoğu zaman antrenmanın kendisi değil, başlamaktır. Bu yüzden ilk hafta hedef performans değil, hareketi günün sıradan bir parçası yapmak. Bir sağlık sorunun varsa yeni bir rutine başlamadan önce doktoruna danış."},"do":{"title":"5 dakika yürü","body":"Bugün dışarı çık ve sadece 5 dakika yürü. Hızlı ya da uzun olması gerekmiyor. Dışarı çıkamıyorsan ev içinde de yapabilirsin.","action":"5 dakika yürüyüş yap","fallback":"Ayakkabını giy ve kapının önüne çık","minutes":5,"suggestedTime":"18:30"},"inspire":{"body":"Düzenli hareket edenlerin çoğu bir gün maraton koşmaya karar vererek başlamadı. Çoğu, kısa bir yürüyüşü günün sıradan bir parçası yaparak başladı."},"reflect":{"question":"Bugün bedenin nasıl hissediyor?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
@@ -25,12 +26,13 @@ insert into public.track_days (track_id, day, content) values ('hareket-eden-bir
 on conflict (track_id, day) do update set content = excluded.content;
 
 -- Odaklanan biri (odaklanan-biri.json)
-insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, level, status, weeks)
-values ('odaklanan-biri', 'Odaklanan biri', 'Odak', 'dikkatini koruyan', 'Dijital minimalizm, derin çalışma ve dikkat', 'Ör. Dağılmadan çalışabilmek ve zihnimi sakinleştirmek istiyorum.', 'baslangic', 'draft', '[{"week":1,"theme":"Telefonla ilişkini gör"},{"week":2,"theme":"Derin çalışma"},{"week":3,"theme":"Sıkılmaya alan aç"},{"week":4,"theme":"Odağı kimliğin yap"}]'::jsonb)
+insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, keywords, level_question, level, status, weeks)
+values ('odaklanan-biri', 'Odaklanan biri', 'Odak', 'dikkatini koruyan', 'Dijital minimalizm, derin çalışma ve dikkat', 'Ör. Dağılmadan çalışabilmek ve zihnimi sakinleştirmek istiyorum.', array['telefon*', 'sosyal', 'instagram*', 'tiktok*', 'youtube*', 'odak*', 'dikkat*', 'dağıl*', 'konsantr*', 'ekran*', 'erteli*', 'erteleme*', 'scroll*', 'kaydır*', 'sakin*', 'stres*', 'meditasyon*']::text[], '{"question":"Telefonu eline almadan kaç dakika çalışabiliyorsun?","options":["10 dakikadan az","10–30 dakika","30 dakikadan fazla"]}'::jsonb, 'baslangic', 'draft', '[{"week":1,"theme":"Telefonla ilişkini gör"},{"week":2,"theme":"Derin çalışma"},{"week":3,"theme":"Sıkılmaya alan aç"},{"week":4,"theme":"Odağı kimliğin yap"}]'::jsonb)
 on conflict (id) do update set
   template_title = excluded.template_title, pillar_title = excluded.pillar_title,
   identity_phrase = excluded.identity_phrase, description = excluded.description,
-  why_placeholder = excluded.why_placeholder, level = excluded.level,
+  why_placeholder = excluded.why_placeholder, keywords = excluded.keywords,
+  level_question = excluded.level_question, level = excluded.level,
   status = excluded.status, weeks = excluded.weeks, updated_at = now();
 insert into public.track_days (track_id, day, content) values ('odaklanan-biri', 1, '{"theme":"Farkındalık","learn":{"title":"Önce gör","body":"Değiştirmek istediğin şeyi önce görmen gerekir. Telefonunun ekran süresi bölümü, günde ne kadar zaman ve en çok hangi uygulamalarda geçirdiğini gösterir. Bu bir yargı değil, sadece bir başlangıç noktası."},"do":{"title":"Ekran süreni gör","body":"Telefonunun ayarlarından ekran süresi bölümünü aç. Dünkü toplam süreyi ve en çok kullandığın 3 uygulamayı not et.","action":"Ekran süreni ve en çok kullandığın 3 uygulamayı not et","fallback":"Sadece dünkü toplam süreye bak","minutes":5,"suggestedTime":"12:30"},"inspire":{"body":"Farkına varmak değişimin ilk adımı. Rakamlara bakmak kendini suçlamak için değil, seçim yapabilmek için."},"reflect":{"question":"Rakamları görünce ne hissettin?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
@@ -48,12 +50,13 @@ insert into public.track_days (track_id, day, content) values ('odaklanan-biri',
 on conflict (track_id, day) do update set content = excluded.content;
 
 -- Okuyan biri (okuyan-biri.json)
-insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, level, status, weeks)
-values ('okuyan-biri', 'Okuyan biri', 'Okuma', 'her gün okuyan', 'Okuma alışkanlığı, odak ve okuduğunu hatırlamak', 'Ör. Daha derin düşünmek ve ekrandan uzaklaşmak istiyorum.', 'baslangic', 'draft', '[{"week":1,"theme":"Zaman ve alan aç"},{"week":2,"theme":"Dikkatini koru"},{"week":3,"theme":"Derinleş: not al, tartış"},{"week":4,"theme":"Okumayı kimliğin yap"}]'::jsonb)
+insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, keywords, level_question, level, status, weeks)
+values ('okuyan-biri', 'Okuyan biri', 'Okuma', 'her gün okuyan', 'Okuma alışkanlığı, odak ve okuduğunu hatırlamak', 'Ör. Daha derin düşünmek ve ekrandan uzaklaşmak istiyorum.', array['kitap*', 'okumak', 'okuma*', 'okuyan', 'okuyorum', 'okurum', 'okuyamıyorum', 'roman*', 'dergi*', 'edebiyat*']::text[], '{"question":"Son 3 ayda kaç kitap bitirdin?","options":["Hiç","1–2 kitap","3 ve üzeri"]}'::jsonb, 'baslangic', 'draft', '[{"week":1,"theme":"Zaman ve alan aç"},{"week":2,"theme":"Dikkatini koru"},{"week":3,"theme":"Derinleş: not al, tartış"},{"week":4,"theme":"Okumayı kimliğin yap"}]'::jsonb)
 on conflict (id) do update set
   template_title = excluded.template_title, pillar_title = excluded.pillar_title,
   identity_phrase = excluded.identity_phrase, description = excluded.description,
-  why_placeholder = excluded.why_placeholder, level = excluded.level,
+  why_placeholder = excluded.why_placeholder, keywords = excluded.keywords,
+  level_question = excluded.level_question, level = excluded.level,
   status = excluded.status, weeks = excluded.weeks, updated_at = now();
 insert into public.track_days (track_id, day, content) values ('okuyan-biri', 1, '{"theme":"Kitabı görünür yap","learn":{"title":"Ortam, irade kadar önemlidir","body":"Telefon elinin altında, kitap rafta duruyorsa kazanan hep telefon olur. Alışkanlıklar büyük ölçüde ortamın ürünüdür: Görünür ve kolay olan yapılır. Okumaya başlamanın ilk adımı daha fazla irade değil, kitabın senin yoluna çıkmasıdır.","source":"James Clear, Atomik Alışkanlıklar (2018)"},"do":{"title":"Kitabı yastığına koy","body":"Okumak istediğin kitabı seç ve bu akşam yatağının ya da en çok oturduğun koltuğun üstüne koy. Telefonunun şarj yerini de odanın diğer ucuna taşı.","action":"Kitabı yatağa koy, telefonu odanın diğer ucunda şarja tak","fallback":"Sadece kitabı seç ve görünür bir yere koy","minutes":5,"suggestedTime":"21:30"},"inspire":{"body":"Okuma alışkanlığı kazananların çoğu bir sabah ''artık okuyan biriyim'' diye uyanmaz. Önce kitap komodine taşınır, sonra yatmadan önce birkaç sayfa okumak normalleşir. Değişim çoğu zaman bu kadar sessiz başlar."},"reflect":{"question":"Gün içinde telefonu en çok hangi anlarda eline alıyorsun?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
@@ -71,12 +74,13 @@ insert into public.track_days (track_id, day, content) values ('okuyan-biri', 7,
 on conflict (track_id, day) do update set content = excluded.content;
 
 -- Üreten biri (ureten-biri.json)
-insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, level, status, weeks)
-values ('ureten-biri', 'Üreten biri', 'Üretim', 'tüketmek yerine üreten', 'Yazmak, çizmek, paylaşmak: tüketiciden üreticiye', 'Ör. Kafamdakileri dışarı çıkarmak ve bir şey ortaya koymak istiyorum.', 'baslangic', 'draft', '[{"week":1,"theme":"Her gün bir şey üret"},{"week":2,"theme":"Kendi sesini bul"},{"week":3,"theme":"Paylaşmaya başla"},{"week":4,"theme":"Üretmeyi kimliğin yap"}]'::jsonb)
+insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, keywords, level_question, level, status, weeks)
+values ('ureten-biri', 'Üreten biri', 'Üretim', 'tüketmek yerine üreten', 'Yazmak, çizmek, paylaşmak: tüketiciden üreticiye', 'Ör. Kafamdakileri dışarı çıkarmak ve bir şey ortaya koymak istiyorum.', array['yazı', 'yazılar', 'yazar', 'blog*', 'çiz*', 'resim*', 'müzik*', 'fotoğraf*', 'üret*', 'yaratıc*', 'hikaye*', 'hikâye*', 'podcast*', 'tasarım*', 'paylaş*']::text[], '{"question":"Son bir ayda kendin için bir şey ürettin mi (yazı, çizim, müzik...)?","options":["Hayır","Birkaç kez","Düzenli olarak"]}'::jsonb, 'baslangic', 'draft', '[{"week":1,"theme":"Her gün bir şey üret"},{"week":2,"theme":"Kendi sesini bul"},{"week":3,"theme":"Paylaşmaya başla"},{"week":4,"theme":"Üretmeyi kimliğin yap"}]'::jsonb)
 on conflict (id) do update set
   template_title = excluded.template_title, pillar_title = excluded.pillar_title,
   identity_phrase = excluded.identity_phrase, description = excluded.description,
-  why_placeholder = excluded.why_placeholder, level = excluded.level,
+  why_placeholder = excluded.why_placeholder, keywords = excluded.keywords,
+  level_question = excluded.level_question, level = excluded.level,
   status = excluded.status, weeks = excluded.weeks, updated_at = now();
 insert into public.track_days (track_id, day, content) values ('ureten-biri', 1, '{"theme":"Tüketim ve üretim","learn":{"title":"Tüketmek kolay, üretmek tatmin edici","body":"Bir saat video izlemek geride pek bir şey bırakmaz; on dakika bir şey yazmak ya da çizmek ise somut bir iz bırakır. Üretmek kusursuz olmak zorunda değil. İlk hedef, tüketimin küçük bir kısmını üretime çevirmek."},"do":{"title":"10 dakika serbest yazı","body":"Bir zamanlayıcı kur ve 10 dakika boyunca aklına ne geliyorsa yaz. Durma, düzeltme, silme. Konu bulamazsan ''Şu an aklımda olan şey...'' diye başla.","action":"10 dakika durmadan serbest yazı yaz","fallback":"3 cümle yaz","minutes":10,"suggestedTime":"20:30"},"inspire":{"body":"Üretmeye başlamak için ilham beklemek gerekmez. Çoğu zaman ilham, üretirken gelir."},"reflect":{"question":"Bugün ne kadar tükettin, ne kadar ürettin?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
@@ -94,12 +98,13 @@ insert into public.track_days (track_id, day, content) values ('ureten-biri', 7,
 on conflict (track_id, day) do update set content = excluded.content;
 
 -- Yazılım öğrenen biri (yazilim-ogrenen-biri.json)
-insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, level, status, weeks)
-values ('yazilim-ogrenen-biri', 'Yazılım öğrenen biri', 'Yazılım', 'her gün kod yazan', 'Temel kavramlar ve her gün küçük bir pratik', 'Ör. Kendi projelerimi yapabilmek ve kariyerimi değiştirmek istiyorum.', 'baslangic', 'draft', '[{"week":1,"theme":"İlk satırlar"},{"week":2,"theme":"Mantık kur"},{"week":3,"theme":"Küçük projeler"},{"week":4,"theme":"Kod yazmayı kimliğin yap"}]'::jsonb)
+insert into public.tracks (id, template_title, pillar_title, identity_phrase, description, why_placeholder, keywords, level_question, level, status, weeks)
+values ('yazilim-ogrenen-biri', 'Yazılım öğrenen biri', 'Yazılım', 'her gün kod yazan', 'Temel kavramlar ve her gün küçük bir pratik', 'Ör. Kendi projelerimi yapabilmek ve kariyerimi değiştirmek istiyorum.', array['kod*', 'yazılım*', 'programla*', 'programcı*', 'developer*', 'geliştirici*', 'python*', 'javascript*', 'bilgisayar*', 'teknoloji*', 'uygulama']::text[], '{"question":"Daha önce kod yazdın mı?","options":["Hiç yazmadım","Biraz denedim","Düzenli yazıyorum"]}'::jsonb, 'baslangic', 'draft', '[{"week":1,"theme":"İlk satırlar"},{"week":2,"theme":"Mantık kur"},{"week":3,"theme":"Küçük projeler"},{"week":4,"theme":"Kod yazmayı kimliğin yap"}]'::jsonb)
 on conflict (id) do update set
   template_title = excluded.template_title, pillar_title = excluded.pillar_title,
   identity_phrase = excluded.identity_phrase, description = excluded.description,
-  why_placeholder = excluded.why_placeholder, level = excluded.level,
+  why_placeholder = excluded.why_placeholder, keywords = excluded.keywords,
+  level_question = excluded.level_question, level = excluded.level,
   status = excluded.status, weeks = excluded.weeks, updated_at = now();
 insert into public.track_days (track_id, day, content) values ('yazilim-ogrenen-biri', 1, '{"theme":"Bilgisayara talimat vermek","learn":{"title":"Programlama nedir?","body":"Programlama, bilgisayara ne yapacağını adım adım ve çok net bir dille anlatmaktır. Bilgisayar tahmin yürütmez: Ne yazarsan onu yapar. Bu yüzden ilk beceri bir dili ezberlemek değil, bir işi küçük ve net adımlara bölmektir."},"do":{"title":"İlk satırın","body":"Bilgisayarında tarayıcıyı aç, F12 tuşuna bas ve Console (Konsol) sekmesine şunu yaz: console.log(''Merhaba, ben kod yazıyorum''); Sonra Enter''a bas. İlk programını çalıştırmış oldun.","action":"Tarayıcı konsolunda ilk console.log satırını çalıştır","fallback":"Bir işi (ör. çay demlemek) 5 net adıma böl ve yaz","minutes":10,"suggestedTime":"20:00"},"inspire":{"body":"Bugün kod yazan herkes bir zamanlar ilk ''Merhaba'' satırını yazdı. Fark, ertesi gün ikinci satırı yazmaya devam etmekti."},"reflect":{"question":"Kod yazmayı öğrenince yapmak istediğin ilk şey ne?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
@@ -115,3 +120,43 @@ insert into public.track_days (track_id, day, content) values ('yazilim-ogrenen-
 on conflict (track_id, day) do update set content = excluded.content;
 insert into public.track_days (track_id, day, content) values ('yazilim-ogrenen-biri', 7, '{"theme":"Haftaya bak","learn":{"title":"Anlatabildiğin şeyi öğrenmişsindir","body":"Bir konuyu gerçekten anlayıp anlamadığını görmenin en iyi yolu onu anlatmaktır. Anlatamadığın yer, henüz tam oturmamış olan yerdir. Bu yüzden haftalık bir ''kendime anlat'' anı, yalnızca tekrar etmekten daha değerlidir."},"do":{"title":"Haftayı anlat","body":"Bu hafta öğrendiğin dört kavramı (değişken, koşul, döngü, fonksiyon) koda bakmadan, birer cümle ve birer örnekle yaz.","action":"4 kavramı bakmadan birer cümle ve örnekle yaz","fallback":"En sevdiğin kavramı bir cümleyle anlat","minutes":15,"suggestedTime":"20:00"},"inspire":{"body":"Bir hafta önce console.log''un ne olduğunu bilmiyordun. Bugün küçük programlar yazabiliyorsun. Her gün kod yazan biri olmanın ilk haftası bu."},"reflect":{"question":"Önümüzdeki hafta yapmak istediğin küçük bir proje fikrin var mı?"}}'::jsonb)
 on conflict (track_id, day) do update set content = excluded.content;
+
+-- Özellik kataloğu (content/traits.json)
+insert into public.traits (id, label, track_ids, position) values ('okuyan', 'Okuyan', array['okuyan-biri']::text[], 0)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('derin-dusunen', 'Derin düşünen', array['okuyan-biri', 'odaklanan-biri']::text[], 1)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('merakli', 'Meraklı', array['okuyan-biri', 'yazilim-ogrenen-biri']::text[], 2)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('saglikli', 'Sağlıklı', array['hareket-eden-biri']::text[], 3)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('enerjik', 'Enerjik', array['hareket-eden-biri']::text[], 4)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('formda', 'Formda', array['hareket-eden-biri']::text[], 5)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('disiplinli', 'Disiplinli', array['hareket-eden-biri', 'odaklanan-biri']::text[], 6)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('odakli', 'Odaklı', array['odaklanan-biri']::text[], 7)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('sakin', 'Sakin', array['odaklanan-biri']::text[], 8)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('uretken', 'Üretken', array['ureten-biri', 'odaklanan-biri']::text[], 9)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('yaratici', 'Yaratıcı', array['ureten-biri']::text[], 10)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('kendini-ifade-eden', 'Kendini ifade eden', array['ureten-biri']::text[], 11)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('teknik-becerili', 'Teknik becerili', array['yazilim-ogrenen-biri']::text[], 12)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('problem-cozen', 'Problem çözen', array['yazilim-ogrenen-biri']::text[], 13)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('sabirli', 'Sabırlı', array[]::text[], 14)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('kendine-guvenen', 'Kendine güvenen', array[]::text[], 15)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('sosyal', 'Sosyal', array[]::text[], 16)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('parasini-yoneten', 'Parasını yöneten', array[]::text[], 17)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;
+insert into public.traits (id, label, track_ids, position) values ('yabanci-dil-konusan', 'Yabancı dil konuşan', array[]::text[], 18)
+on conflict (id) do update set label = excluded.label, track_ids = excluded.track_ids, position = excluded.position;

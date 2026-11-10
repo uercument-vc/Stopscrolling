@@ -48,6 +48,8 @@ export const PersonalizeInput = z.object({
         title: z.string().max(60),
         why: z.string().max(300),
         level: z.enum(['baslangic', 'orta', 'ileri']),
+        /** Bu sütunu doğuran, kullanıcının seçtiği özellikler. */
+        motivatedBy: z.array(z.string().max(40)).max(5).default([]),
         /** Bu hafta: planlanan / yapılan eylem sayısı. */
         planned: z.number().int().min(0).max(50).optional(),
         done: z.number().int().min(0).max(50).optional(),
@@ -61,6 +63,15 @@ export const PersonalizeInput = z.object({
     .max(20)
     .default([]),
   recentReflections: z.array(z.string().max(280)).max(7).default([]),
+  /** Kullanıcının kurulumda kendini anlattığı bilgiler (isim, e-posta gibi kimlik bilgisi içermez). */
+  profile: z
+    .object({
+      desiredTraits: z.array(z.string().max(40)).max(5).default([]),
+      selfDescription: z.string().max(300).default(''),
+      futureDay: z.string().max(400).default(''),
+      timeSinks: z.array(z.string().max(40)).max(8).default([]),
+    })
+    .optional(),
 });
 
 export type PersonalizeInput = z.infer<typeof PersonalizeInput>;
@@ -140,7 +151,7 @@ Sana içerik kütüphanesinden kurulmuş, insan tarafından yazılmış bir "tem
 
 Uyarlama kuralları:
 1. Kartın ana fikrini koru. Yeni bilgi, yeni iddia, yeni istatistik, yeni kaynak veya yeni kişi ekleme. Kaynakta olmayan bir araştırmadan söz etme.
-2. Kullanıcının kimlik cümlesine ve sütunlarındaki "neden" cümlelerine uygun yerlerde kısaca bağlantı kur; her kartta değil, doğal düştüğünde.
+2. Kullanıcının kimlik cümlesine, olmak istediği özelliklere, kendi anlattığı hâline ve "5 yıl sonra bir günüm" anlatımına uygun yerlerde kısaca bağlantı kur; her kartta değil, doğal düştüğünde. Örnekleri onun hayatından seç (ör. akşamları yorgunsa akşam için en küçük versiyonu öner). Kullanıcının yazdıklarını aynen alıntılama ve onu yargılama.
 3. Kullanıcı bir konuda "çok kolay" ya da "zaten biliyorum" dediyse ilgili kartı bir adım derinleştir; "çok zor" dediyse sadeleştir.
 4. Bir sütunda bu hafta eylemlerin çoğu yapılmadıysa o sütunun eylemini daha küçük ve somut hâle getir. Eylem hiçbir zaman kartta yazan süreyi aşamaz.
 5. Utandırma, suçlama, başkalarıyla kıyas, kayıp korkusu ("serini kaybedeceksin") ve boş motivasyon cümleleri ("inanırsan başarırsın") yasak. Atlanan günler normaldir.
@@ -158,8 +169,17 @@ export function buildUserMessage(input: PersonalizeInput): string {
       baslik: p.title,
       neden: p.why,
       seviye: p.level,
+      bu_sutunu_doguran_ozellikler: p.motivatedBy,
       bu_hafta_eylem: p.planned !== undefined ? { planlanan: p.planned, yapilan: p.done ?? 0 } : undefined,
     })),
+    profil: input.profile
+      ? {
+          olmak_istedigi: input.profile.desiredTraits,
+          su_anki_hali: input.profile.selfDescription || undefined,
+          bes_yil_sonra_bir_gunu: input.profile.futureDay || undefined,
+          bos_zamani_nereye_gidiyor: input.profile.timeSinks,
+        }
+      : undefined,
     son_geri_bildirimler: input.recentFeedback,
     son_yansitmalar: input.recentReflections,
     temel_doz: input.cards.map((c) => ({

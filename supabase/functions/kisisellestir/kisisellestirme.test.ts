@@ -2,6 +2,7 @@
 import assert from 'node:assert/strict';
 
 import {
+  buildUserMessage,
   type CallModel,
   hasCrisisSignal,
   mergeCards,
@@ -135,4 +136,28 @@ Deno.test('girdi şeması: en fazla 3 sütun, eylem en fazla 15 dakika', () => {
   const longAction = structuredClone(input);
   longAction.cards[1].action!.minutes = 45;
   assert.equal(PersonalizeInput.safeParse(longAction).success, false);
+});
+
+Deno.test('kurulum profili modele gider; kimlik bilgisi alanı yok', () => {
+  const withProfile = PersonalizeInput.parse({
+    ...input,
+    pillars: [{ ...input.pillars[0], motivatedBy: ['Odaklı', 'Sakin'] }],
+    profile: {
+      desiredTraits: ['Odaklı', 'Sakin', 'Okuyan'],
+      selfDescription: 'Akşamları yorgun oluyorum ve telefonda kayboluyorum.',
+      futureDay: 'Sabah kitap okuyorum.',
+      timeSinks: ['Sosyal medya'],
+    },
+  });
+  const message = buildUserMessage(withProfile);
+  assert.match(message, /"olmak_istedigi": \[\s*"Odaklı"/);
+  assert.match(message, /Akşamları yorgun oluyorum/);
+  assert.match(message, /"bu_sutunu_doguran_ozellikler"/);
+  assert.doesNotMatch(message, /e-?posta|email|isim/i);
+
+  // Profil isteğe bağlı: Eski istemciler göndermese de geçerli.
+  assert.equal(PersonalizeInput.safeParse(input).success, true);
+  // 6 özellik reddedilir.
+  const tooMany = { ...withProfile, profile: { ...withProfile.profile!, desiredTraits: ['a', 'b', 'c', 'd', 'e', 'f'] } };
+  assert.equal(PersonalizeInput.safeParse(tooMany).success, false);
 });

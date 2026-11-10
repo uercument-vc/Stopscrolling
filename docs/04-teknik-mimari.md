@@ -110,7 +110,9 @@ flowchart TB
 |---|---|
 | `users` | id, timezone, dose_time, daily_budget_min, plan, created_at |
 | `identities` | user_id, statement, version |
-| `pillars` | id, user_id, template_id, title, why, level, weight, weekly_minutes, active |
+| `profiles` | id, identity, time_sinks[], productive_time, self_description, desired_traits[] (≤5), future_day, baseline_social_hours |
+| `traits` | id, label, track_ids[] (boş = henüz yolu yok) — "Olmak istediğin sen" kataloğu |
+| `pillars` | id, user_id, template_id, title, why, level, weight, weekly_minutes, active, motivated_by[] |
 | `recipes` | user_id, version, mix (öğren/uygula/ilham/yansıt), depth, tone, formats[], blocked_topics[] |
 | `recipe_changes` | user_id, from_version, to_version, diff, proposed_by (`user` \| `ai`), accepted_at |
 | `tracks` | id, template_id, level, title, days, status (`draft` \| `reviewed` \| `live`) |

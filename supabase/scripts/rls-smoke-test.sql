@@ -44,7 +44,17 @@ do $$ begin
   if (select count(*) from public.actions) <> 0 then raise exception 'HATA: A, B''nin eylemlerini görüyor'; end if;
   if (select string_agg(id, ',') from public.tracks) <> 'okuyan-biri' then raise exception 'HATA: live olmayan yol görünüyor'; end if;
   if (select count(*) from public.track_days) <> 7 then raise exception 'HATA: live yolun günleri eksik/fazla'; end if;
+  if (select count(*) from public.traits) <> 19 then raise exception 'HATA: özellik kataloğu okunamıyor'; end if;
+  if (select keywords[1] from public.tracks) is null then raise exception 'HATA: yolun anahtar kelimeleri yok'; end if;
   raise notice 'OK: A sadece kendi verisini ve yayındaki içeriği görüyor';
+end $$;
+
+-- Profil: en fazla 5 hedef özellik
+insert into public.profiles (id, desired_traits, productive_time) values (auth.uid(), array['odakli', 'sakin'], 'aksam');
+do $$ begin
+  update public.profiles set desired_traits = array['a', 'b', 'c', 'd', 'e', 'f'] where id = auth.uid();
+  raise exception 'HATA: 6 hedef özellik kaydedilebildi';
+exception when check_violation then raise notice 'OK: en fazla 5 hedef özellik';
 end $$;
 
 -- A başkası adına satır ekleyemez

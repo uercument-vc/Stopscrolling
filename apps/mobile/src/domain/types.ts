@@ -44,6 +44,13 @@ export interface Track {
   identityPhrase: string;
   description: string;
   whyPlaceholder: string;
+  /**
+   * Serbest metinden yol önermek için anahtar kelimeler. "kok*" kökle başlayan kelimeleri,
+   * yıldızsız olanlar sadece kelimenin kendisini yakalar ("yazı" ≠ "yazılım").
+   */
+  keywords: string[];
+  /** Soyut "başlangıç/orta/ileri" yerine somut bir soru; 3 şık seviyelere karşılık gelir. */
+  levelQuestion: { question: string; options: string[] };
   level: Level;
   /** İçerik inceleme durumu. */
   status: 'draft' | 'reviewed' | 'live';
@@ -55,12 +62,40 @@ export interface Track {
 // Kullanıcı modeli
 // ---------------------------------------------------------------------------
 
+/** "Olmak istediğin sen" adımındaki bir özellik. tracks boşsa henüz yolu yok. */
+export interface Trait {
+  id: string;
+  label: string;
+  tracks: string[];
+}
+
+export type ProductiveTime = 'sabah' | 'ogle' | 'aksam' | 'gece';
+
+/**
+ * Kullanıcının kendini anlattığı kurulum bilgileri. Sistem kullanıcıyı buradan tanır:
+ * yol önerisi, kimlik cümlesi, doz saati ve "Bunu neden görüyorum?" açıklamaları.
+ */
+export interface Profile {
+  /** Şu anki sen: boş zaman nereye gidiyor? */
+  timeSinks: string[];
+  productiveTime: ProductiveTime;
+  baselineSocialHours: string;
+  /** Kullanıcının kendi cümleleriyle şu anki hâli (isteğe bağlı). */
+  selfDescription: string;
+  /** Olmak istediğin sen: seçilen özellik kimlikleri. */
+  desiredTraits: string[];
+  /** "5 yıl sonra sıradan bir günün" (isteğe bağlı). */
+  futureDay: string;
+}
+
 export interface Pillar {
   id: string;
   trackId: string;
   title: string;
   why: string;
   level: Level;
+  /** Bu sütunu doğuran, kullanıcının seçtiği özellikler (etiket). "Neden" açıklamalarında gösterilir. */
+  motivatedBy?: string[];
   /** Yolda gösterilecek sıradaki gün (1'den başlar). */
   currentDay: number;
 }
@@ -154,9 +189,9 @@ export interface Checkin {
 
 export interface OnboardingInput {
   identity: string;
-  pillars: { trackId: string; why: string; level: Level }[];
+  profile: Profile;
+  pillars: { trackId: string; why: string; level: Level; motivatedBy: string[] }[];
   budget: DailyBudget;
   tone: Tone;
   doseTime: TimeOfDay;
-  baselineSocialHours: string;
 }

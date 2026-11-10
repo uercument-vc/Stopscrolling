@@ -9,7 +9,9 @@ Postgres şeması, içerik kütüphanesinin veritabanına aktarımı ve Claude i
 ```
 supabase/
 ├── config.toml
-├── migrations/20261109120000_ilk_sema.sql   # Tablolar, RLS, raf sınırı tetikleyicisi
+├── migrations/
+│   ├── 20261109120000_ilk_sema.sql          # Tablolar, RLS, raf sınırı tetikleyicisi
+│   └── 20261110120000_kurulum_profili.sql   # Profil, özellik kataloğu, anahtar kelimeler, talep görünümü
 ├── seed.sql                                 # Otomatik üretilir (aşağıya bak)
 ├── scripts/
 │   ├── build-seed.mjs                       # content/tracks/*.json → seed.sql
@@ -20,7 +22,9 @@ supabase/
 
 ## Veritabanı
 
-Tablolar `docs/04-teknik-mimari.md` içindeki veri modelini izler: `tracks`, `track_days` (paylaşılan içerik), `profiles`, `pillars`, `recipes`, `recipe_changes`, `doses`, `cards`, `actions`, `dismissed_suggestions`.
+Tablolar `docs/04-teknik-mimari.md` içindeki veri modelini izler: `tracks`, `track_days`, `traits` (paylaşılan içerik), `profiles`, `pillars`, `recipes`, `recipe_changes`, `doses`, `cards`, `actions`, `dismissed_suggestions`.
+
+`trait_demand` görünümü, kullanıcıların hangi hedefleri seçtiğini sayar; özellikle henüz yolu olmayan hedefler (`yolu_yok = true`) içerik yol haritası için talep sinyalidir. İçerik ekibi servis rolüyle sorgular.
 
 Kurallar veritabanında da zorunlu:
 - **RLS:** Herkes sadece kendi satırlarını görür ve yazar.
@@ -30,7 +34,7 @@ Kurallar veritabanında da zorunlu:
 
 ### Seed
 
-İçeriğin tek kaynağı `content/tracks/*.json`. İçerik değişince:
+İçeriğin tek kaynağı `content/tracks/*.json` ve `content/traits.json`. İçerik değişince:
 
 ```bash
 node supabase/scripts/build-seed.mjs
@@ -52,7 +56,8 @@ Geçici bir veritabanı açar, Supabase `auth` şemasının küçük bir taklidi
 - **Model neyi değiştiremez:** Kart türü, kimliği, eylem süresi, saati ve kaynak. Sadece metinler uyarlanır; her alan ayrı ayrı doğrulanır.
 - **Doz asla bozulmaz:** Model hata verirse, reddederse, geçersiz ya da yasaklı ifade içeren çıktı üretirse ilgili kartta temel metin kalır.
 - **Kriz işareti:** Yansıtma cevaplarında kendine zarar işareti varsa model çağrılmaz ve yanıtta `safety: "kriz"` döner. Uygulama bu durumda destek ekranı göstermeli (henüz yapılmadı). Bu kaba bir anahtar kelime filtresi; profesyonel bir sistemin yerini tutmaz.
-- **Gizlilik:** Girdi şemasında isim, e-posta gibi alan yok; modele sadece kimlik cümlesi, nedenler, geri bildirimler ve kartlar gider.
+- **Kurulum profili:** İsteğe bağlı `profile` alanıyla kullanıcının olmak istediği özellikler, kendi anlattığı hâli ve "5 yıl sonra bir günüm" anlatımı modele gider; model örneklerini kullanıcının hayatından seçer, yazdıklarını aynen alıntılamaz.
+- **Gizlilik:** Girdi şemasında isim, e-posta gibi alan yok; modele sadece kimlik cümlesi, profil, nedenler, geri bildirimler ve kartlar gider.
 
 ### Yerel test
 
